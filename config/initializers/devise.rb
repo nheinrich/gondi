@@ -51,23 +51,23 @@ Devise.setup do |config|
   # You can use this to let your user access some features of your application
   # without confirming the account, but blocking it after a certain period
   # (ie 2 days).
-  # config.confirm_within = 2.days
+  config.confirm_within = 2.days
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 3.months
 
   # ==> Configuration for :validatable
   # Range for password length
-  # config.password_length = 6..20
+  config.password_length = 4..20
 
   # Regex to use to validate the email address
-  # config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
+  config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again.
-  # config.timeout_in = 10.minutes
+  config.timeout_in = 20.minutes
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -84,10 +84,10 @@ Devise.setup do |config|
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
-  # config.maximum_attempts = 20
+  # config.maximum_attempts = 10
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
+  # config.unlock_in = 2.hour
 
   # ==> Configuration for :token_authenticatable
   # Defines name of the authentication token params key
@@ -97,7 +97,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "sessions/users/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = true
+  config.scoped_views = true
 
   # By default, devise detects the role accessed based on the url. So whenever
   # accessing "/users/sign_in", it knows you are accessing an User. This makes
@@ -105,11 +105,11 @@ Devise.setup do |config|
   # scope, setting true below.
   # Note that devise does not generate default routes. You also have to
   # specify them in config/routes.rb
-  config.use_default_scope = true
+  # config.use_default_scope = true
 
   # Configure the default scope used by Devise. By default it's the first devise
   # role declared in your routes.
-  config.default_scope = :user
+  # config.default_scope = :user
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like

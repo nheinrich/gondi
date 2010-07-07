@@ -14,8 +14,11 @@
         %h1= link_to @title, '/'
         %span= (145)
         %ul.nav
-          - if current_user
-            %li= current_user.id
+          = "admin: #{current_admin.id}" if current_admin
+          = "user: #{current_user.id}" if current_user
+          - if current_admin
+            %li= link_to 'sign out', destroy_admin_session_path
+          - elsif current_user
             %li= link_to 'your saves', '/your_saves_path', :class => 'your_saves'
             %li= link_to 'sign out', sign_out_path
           - else

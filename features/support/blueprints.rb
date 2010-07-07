@@ -8,14 +8,14 @@ Sham.email { Faker::Internet.email }
 Sham.title { Faker::Lorem.sentence }
 Sham.body  { Faker::Lorem.paragraphs(3) }
 
+Admin.blueprint do
+  password      { 'password' }
+  email         { Sham.email }
+end
+
 Rider.blueprint do
   name          { "Jed Anderson" }
 end
-
-# User.blueprint do
-#   password      { 'password' }
-#   email         { Sham.email }
-# end
 
 Video.blueprint do
   title         { Sham.title }

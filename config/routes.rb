@@ -1,10 +1,7 @@
 Gondi::Application.routes.draw do |map|
 
+  devise_for :admins
   devise_for :users
-
-  match 'sign_in', :to => 'devise/sessions#new', :as => 'new_user_session'
-  match 'sign_up', :to => 'devise/registrations#new', :as => 'new_user_registration'
-  match 'sign_out', :to => 'devise/sessions#destroy', :as => 'destroy_user_session'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,8 +57,8 @@ Gondi::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "welcome#index"
-
+  root :to => 'welcome#index'
+  match '/', :to => 'welcome#index', :as => 'admin_root'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
