@@ -2,6 +2,10 @@ Gondi::Application.routes.draw do |map|
 
   devise_for :users
 
+  match 'sign_in', :to => 'devise/sessions#new', :as => 'new_user_session'
+  match 'sign_up', :to => 'devise/registrations#new', :as => 'new_user_registration'
+  match 'sign_out', :to => 'devise/sessions#destroy', :as => 'destroy_user_session'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +16,11 @@ Gondi::Application.routes.draw do |map|
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+
+
+  # facebook: called after login
+  match 'facebook/sign_in' => 'facebook#sign_in', :as => 'fb_connect'
+  match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

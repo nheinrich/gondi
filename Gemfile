@@ -10,7 +10,8 @@ gem 'mysql'
 gem 'haml', '>= 3.0.0.beta.3'
 
 gem 'devise', '>= 1.1.rc2'
-gem 'friendly_id', '~> 3.0'
+gem 'mini_fb'
+
 
 group :test do
   gem 'capybara'

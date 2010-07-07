@@ -1,5 +1,5 @@
 !!!
-%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", "xml:lang" => "en" }
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xmlns:fb" => "http://www.facebook.com/2008/fbml", :lang => "en", "xml:lang" => "en" }
   %head
     = page_title
     %link{ :rel => "shortcut icon", :href => "/images/favicon.ico" }
@@ -9,20 +9,26 @@
 
   %body{ :class => yield(:page_style) }
     .container
+
       .header
         %h1= link_to @title, '/'
         %span= (145)
         %ul.nav
-          - if user_signed_in?
-            %li.your_saves= link_to 'Your Saves', '/your_saves_path'
+          - if current_user
+            %li= current_user.id
+            %li= link_to 'your saves', '/your_saves_path', :class => 'your_saves'
+            %li= link_to 'sign out', sign_out_path
           - else
             %li= link_to 'sign in / ', new_user_session_path
-            %li.fbconnect= link_to 'Facebook Connect', '/???'
+            %li= link_to 'Connect with Facebook', facebook_auth_path, :class => 'fb_connect'
+
         .search
           %input
 
-      .content
+      .flash
         = flash_messages
+
+      .content
         = yield :layout
 
       .footer
@@ -30,3 +36,5 @@
         %ul
           %li= link_to 'Submit a Link', 'submit_a_link'
           %li= link_to 'Contact', 'contact_path'
+
+    = render :partial => 'layouts/javascripts'
