@@ -3,6 +3,13 @@ Gondi::Application.routes.draw do |map|
   devise_for :admins
   devise_for :users
 
+  # facebook: called after login
+
+  match 'facebook/sign_in' => 'facebook#sign_in', :as => 'fb_connect'
+  match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
+
+  resources :videos
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -13,11 +20,6 @@ Gondi::Application.routes.draw do |map|
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-
-
-  # facebook: called after login
-  match 'facebook/sign_in' => 'facebook#sign_in', :as => 'fb_connect'
-  match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -56,9 +58,10 @@ Gondi::Application.routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+
   root :to => 'welcome#index'
   match '/', :to => 'welcome#index', :as => 'admin_root'
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

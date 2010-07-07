@@ -9,35 +9,14 @@
 
   %body{ :class => yield(:page_style) }
     .container
-
-      .header
-        %h1= link_to @title, '/'
-        %span= (145)
-        %ul.nav
-          = "admin: #{current_admin.id}" if current_admin
-          = "user: #{current_user.id}" if current_user
-          - if current_admin
-            %li= link_to 'sign out', destroy_admin_session_path
-          - elsif current_user
-            %li= link_to 'your saves', '/your_saves_path', :class => 'your_saves'
-            %li= link_to 'sign out', sign_out_path
-          - else
-            %li= link_to 'sign in / ', new_user_session_path
-            %li= link_to 'Connect with Facebook', facebook_auth_path, :class => 'fb_connect'
-
-        .search
-          %input
-
-      .flash
-        = flash_messages
+      = render :partial => 'layouts/header'
+      = render :partial => 'layouts/flash'
+      = render :partial => 'layouts/admin'
 
       .content
         = yield :layout
 
-      .footer
-        %span © 2010 GONDI.TV
-        %ul
-          %li= link_to 'Submit a Link', 'submit_a_link'
-          %li= link_to 'Contact', 'contact_path'
+      = render :partial => 'layouts/footer'    
+
 
     = render :partial => 'layouts/javascripts'

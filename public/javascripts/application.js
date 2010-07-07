@@ -1,13 +1,18 @@
 // common
 
 $(document).ready(function() {
-  console.log('gondi.tv is live')
   facebook.init();
 })
 
 // views ---------------------------------------------------------------------
 
-
+var video = {
+  new:{
+    init:function(){
+      console.log('video.new.init')
+    }
+  }
+}
 
 
 // components ----------------------------------------------------------------
