@@ -8,20 +8,20 @@ Sham.email { Faker::Internet.email }
 Sham.title { Faker::Lorem.sentence }
 Sham.body  { Faker::Lorem.paragraphs(3) }
 
-# Rider.blueprint do
-#   name          { Sham.name }
-# end
+Rider.blueprint do
+  name          { "Jed Anderson" }
+end
 
 # User.blueprint do
 #   password      { 'password' }
 #   email         { Sham.email }
 # end
 
-# Video.blueprint do
-#   title         { Sham.title }
-#   width         { '640px' }
-#   height        { '480px' }
-#   user_id       { User.make.id }
-#   status        { nil }
-# end
+Video.blueprint do
+  title         { Sham.title }
+  width         { '640px' }
+  height        { '480px' }
+  user_id       { User.make.id }
+  status        { nil }
+end
 

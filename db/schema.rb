@@ -9,7 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100707041016) do
+ActiveRecord::Schema.define(:version => 20100707054802) do
+
+  create_table "riders", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -32,5 +38,16 @@ ActiveRecord::Schema.define(:version => 20100707041016) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["fb_user_id"], :name => "index_users_on_fb_user_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "width"
+    t.string   "height"
+    t.string   "user_id"
+    t.string   "status"
+    t.string   "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
