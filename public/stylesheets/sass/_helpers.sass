@@ -1,0 +1,135 @@
+// cufon  -------------------------------------------------------------------
+
+= cufon
+  :visibility hidden
+
+// layout  -------------------------------------------------------------------
+
+= centered
+  :margin 0 auto
+
+// elements  -----------------------------------------------------------------
+
+= image_text
+  :display block
+  :overflow hidden
+  :text-indent 9999px
+
+
+// styles  -------------------------------------------------------------------
+
+= shadowed
+  :text-shadow 1px 1px #555
+
+
+= rounded(!radius = 4px)
+  :-moz-border-radius !radius
+  :-webkit-border-radius !radius
+
+// hacks  --------------------------------------------------------------------
+
+= has_layout
+  // This makes ie6 get layout
+  :display inline-block
+  // and this puts it back to block
+  &
+    :display block
+
+= clearfix
+  &:after
+    :content " "
+    :display block
+    :height 0
+    :clear both
+    :overflow hidden
+    :visibility hidden
+  +has_layout
+
+// shortcuts -----------------------------------------------------------------
+
+= block
+  :display block
+
+= inline
+  :display inline
+
+= inline-block
+  :display inline-block
+
+.clear
+  +block
+  :clear both
+
+= clear
+  +block
+  :clear both
+
+= cleft
+  +block
+  :clear left
+
+= cright
+  +block
+  :clear right
+
+.left
+  :float left
+
+= left
+  :float left
+
+.right
+  :float right
+
+= right
+  :float right
+
+= tleft
+  :text-align left
+
+= tright
+  :text-align right
+
+= absolute
+  :position absolute
+
+= relative
+  :position relative
+
+// visibility  ---------------------------------------------------------------
+
+= hide
+  :display none
+
+= transparent
+  :background transparent
+
+= no_overflow
+  :overflow hidden
+
+// lists
+
+= horizontal
+  li
+    +block
+    +left
+
+// forms
+
+= see_through
+  :border 0
+  :background transparent
+
+// utility
+
+= ub
+  :background pink
+
+= ubb
+  :border 5px solid red
+
+br.clear
+  +block
+  +clear
+  :height 0
+

@@ -1,1 +1,9 @@
-welcome#index
+// head ----------------------------------------------------------------------
+
+- content_for :on_ready do
+  video.list.init()
+
+// body ----------------------------------------------------------------------
+
+- 4.times do
+  = render :partial => 'videos/video'

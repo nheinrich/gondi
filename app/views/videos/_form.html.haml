@@ -1,3 +1,33 @@
-%h1 ACTUAL VIDEO FORM
+= lifted_box 'video_form' do
+  .form
+    .head
+      %h2 Video
+      = bevel_button 'status', 'status gray'
+      / %ul.status
+      /   %li.selected status
+      /   %li show
+      /   %li hide
+      /   %li review
+    %span.hr
+    .video
+      = fancy_input 'title'
+      = fancy_input 'width'
+      = fancy_input 'height'
+      = fancy_input 'duration'
+      = fancy_input 'link'
+      = fancy_input 'source'
+      = bevel_button 'embed', 'embed gray'
 
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .riders
+      %h2 Riders
+      = fancy_input 'riders', 'round icon search_or_add', 'Search / Add'
+      %span.hr
+      %ul.tag_list
+        - 12.times do
+          %li= tag_link 'Jonas Michilot', 'icon', '#destroy_rider/1'
+    %span.hr
+    .buttons
+      = bevel_button 'done', 'done green'
+      = bevel_button 'cancel', 'cancel gray'
+
+%span.hr

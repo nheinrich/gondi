@@ -1,3 +1,9 @@
-$("div.new_video").html("<%= escape_javascript(render :partial => 'form') %>")
-video.new.init()
-          
+if ($("div.video_form")[0]) {
+  $("div.admin").fadeOut()
+  $("div.admin div.video_form").remove()
+  $("div.admin span.hr").remove()
+} else {
+  $("div.admin").hide().prepend("<%= escape_javascript(render(:partial => 'form')) %>").fadeIn('fast')
+}
+
+video.form.init()

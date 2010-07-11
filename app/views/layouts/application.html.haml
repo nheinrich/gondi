@@ -10,12 +10,15 @@
   %body{ :class => yield(:page_style) }
     .container
       = render :partial => 'layouts/header'
+      %span.hr      
       = render :partial => 'layouts/flash'
       = render :partial => 'layouts/admin'
 
       .content
         = yield :layout
 
+      %span.hr
+      
       = render :partial => 'layouts/footer'    
 
 

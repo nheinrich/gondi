@@ -1,0 +1,96 @@
+// forms ---------------------------------------------------------------------
+
+// common --------------------------------------------------------------------
+
+div.fancy_input
+  +relative
+  :height 31px
+  span.input
+    +block
+    +left
+    :height 31px
+    :margin-right -10px
+    :padding-left 6px
+    :background url(/images/fancy_input.default.png) no-repeat
+    input
+      +left
+      +see_through
+      :margin-top 5px
+      :padding-top 6px
+      :font-size 14px
+      :color= !txt_gray_medium
+      &.blur
+        :color= !txt_gray_light
+  span.tail
+    :display inline-block
+    +relative
+    :right -10px
+    :height 31px
+    :width 10px
+    :background url(/images/fancy_input.default.png) top right no-repeat
+  &.round
+    span.input
+      :background url(/images/fancy_input.round.png) no-repeat
+    span.tail
+      :background url(/images/fancy_input.round.png) top right no-repeat
+  &.icon
+    span.input
+      :padding-left 23px
+      :background url(/images/fancy_input.round.with_icon.png) no-repeat
+
+
+div.buttons
+  :height 31px
+  a.bevel_button
+    +left
+    :margin-right 15px
+
+// actual forms --------------------------------------------------------------
+
+// video (new) ---------------------------------------------------------------
+
+div.video_form
+  div.head
+    :height 40px
+    h2
+      +inline-block
+      :width 600px
+    a.bevel_button.status
+      +right
+      +relative
+      :left -5px
+  div.video
+    :height 80px
+    :margin-bottom 10px
+    .fancy_input
+      +left
+      :margin 0 20px 10px 0
+    .title input
+      :width 381px
+    .width input,
+    .height input,
+    .duration input
+      :width 75px
+    .duration
+      :margin-right 0
+    .link input
+      +cleft
+      :width 381px
+    .source input
+      :width 176px
+    a.embed
+      +left
+      span.text
+        :width 53px
+        :padding-left 21px
+  div.riders
+    h2
+      +left
+      :width 104px
+      :margin-bottom 2px
+    div.search_or_add
+      +left
+      :margin-top 3px
+    ul
+      :margin-bottom 8px
+

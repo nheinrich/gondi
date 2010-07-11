@@ -1,2 +1,10 @@
 = javascript_include_tag "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"
-= javascript_include_tag "jquery-1.4.2.min","rails","application"
+= javascript_include_tag "jquery","rails","jquery.hint"
+= javascript_include_tag "/fonts/cufon","/fonts/gondvetica.font.js"
+= javascript_include_tag "patterns","application"
+
+// js from views
+%script{ :type => 'text/javascript', :charset => 'utf-8' }
+  $(document).ready(function() {
+  = yield :on_ready
+  })
