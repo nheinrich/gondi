@@ -315,14 +315,14 @@ div.video_form div.video {
     width: 381px; }
   div.video_form div.video .source input {
     width: 176px; }
-  div.video_form div.video a.embed {
+  div.video_form div.video a.image {
     float: left; }
-    div.video_form div.video a.embed span.text {
+    div.video_form div.video a.image span.text {
       width: 53px;
       padding-left: 21px; }
 div.video_form div.athletes h2 {
   float: left;
-  width: 104px;
+  width: 140px;
   margin-bottom: 2px; }
 div.video_form div.athletes div.search_or_add {
   float: left;
@@ -488,15 +488,15 @@ li.video {
     overflow: hidden;
     text-indent: 9999px;
     position: absolute;
-    right: 4px;
+    right: -14px;
     width: 10px;
     height: 10px; }
   li.video a.edit {
     top: 4px;
-    background: yellow; }
+    background: white; }
   li.video a.delete {
     top: 14px;
-    background: red; }
+    background: black; }
 
 ul.tag_list {
   display: inline-block; }
