@@ -1,5 +1,5 @@
 = lifted_box 'video_form' do
-  = form_for video, :remote => true do |f|
+  = form_for video, :html => {:multipart => true} do |f|
     .head
       %h2 Video
       = bevel_button 'status', 'status gray'
@@ -17,6 +17,7 @@
       = fancy_input 'video[link]', 'link', 'Link', video.link
       = fancy_input 'video[source]', 'source', 'Source', video.source
       = bevel_button 'image', 'image gray'
+      = file_field_tag 'video[snapshot]'
 
     .athletes
       %h2 Starring

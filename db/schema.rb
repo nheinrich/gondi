@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100712031158) do
+ActiveRecord::Schema.define(:version => 20100712085323) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(:version => 20100712031158) do
     t.string   "duration"
     t.string   "link"
     t.string   "source"
+    t.string   "snapshot_file_name"
+    t.string   "snapshot_content_type"
+    t.integer  "snapshot_file_size"
+    t.datetime "snapshot_updated_at"
   end
 
 end

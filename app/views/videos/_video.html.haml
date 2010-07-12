@@ -1,5 +1,5 @@
 %li.video{ :id => "video_"+video.id.to_s }
-  %img
+  = image_tag video.snapshot.url
   %span.duration= video.duration
   .info
     %h3= video.title

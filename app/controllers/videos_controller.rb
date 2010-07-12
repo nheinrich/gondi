@@ -19,8 +19,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new params[:video]
-    if @video.save
+    if @video = Video.create(params[:video])
+      @selector = '#video_'+@video.id.to_s
       respond_with(@video, :location => root_url, :notice => 'Video successfully created')
     else
       respond_with(@video, :location => root_url)
@@ -29,8 +29,8 @@ class VideosController < ApplicationController
 
   def update
     @video = Video.find params[:id]
-    @selector = '#video_'+@video.id.to_s
     if @video.update_attributes(params[:video])
+      @selector = '#video_'+@video.id.to_s
       respond_with(@video, :location => root_url, :notice => 'Video successfully updated')
     else
       respond_with(@video, :location => root_url)

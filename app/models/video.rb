@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
 
   has_and_belongs_to_many :athletes
+  has_attached_file :snapshot, :styles => { :thumb => "144x108>" }
 
   before_save :set_status
 
