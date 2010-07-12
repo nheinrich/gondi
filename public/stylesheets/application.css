@@ -290,11 +290,17 @@ div.video_form div.head {
   height: 40px; }
   div.video_form div.head h2 {
     display: inline-block;
-    width: 600px; }
+    width: 400px; }
   div.video_form div.head a.bevel_button.status {
     float: right;
     position: relative;
     left: -5px; }
+  div.video_form div.head .status {
+    float: right; }
+    div.video_form div.head .status a {
+      display: none; }
+      div.video_form div.head .status a.selected {
+        display: block; }
 div.video_form div.video {
   height: 80px;
   margin-bottom: 10px; }

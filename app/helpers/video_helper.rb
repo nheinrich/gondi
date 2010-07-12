@@ -7,4 +7,14 @@ module VideoHelper
     end
   end
 
+  def determine_video_status(video)
+    if video
+      return video.status || 'active'
+    elsif current_admin
+      return 'active'
+    else
+      return 'inactive'
+    end
+  end
+
 end

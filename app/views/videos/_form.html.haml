@@ -2,12 +2,13 @@
   = form_for video, :html => {:multipart => true} do |f|
     .head
       %h2 Video
-      = bevel_button 'status', 'status gray'
-      / %ul.status
-      /   %li.selected status
-      /   %li active
-      /   %li inactive
-      /   %li review
+      .status
+        - status = determine_video_status(video)
+        - ['active','inactive','review'].each do |state|
+          - selected = (status == state) ? 'selected' : ''
+          - styles = 'status gray '+ state + ' ' + selected
+          = bevel_button state, styles
+        = hidden_field_tag 'video[status]', status
     %span.hr
     .video
       = fancy_input 'video[title]', 'title', 'Title', video.title
@@ -17,7 +18,7 @@
       = fancy_input 'video[link]', 'link', 'Link', video.link
       = fancy_input 'video[source]', 'source', 'Source', video.source
       = bevel_button 'image', 'image gray'
-      = file_field_tag 'video[snapshot]'
+      = f.file_field 'video[snapshot]'
 
     .athletes
       %h2 Starring

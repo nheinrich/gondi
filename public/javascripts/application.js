@@ -22,6 +22,16 @@ var video = {
     init:function(){
       // fixes fonts on the form
       typography.replace([this.selector('h2')], true)
+      // status toggle
+      $(this.el + ' div.status a').live('click',function(){
+        var el = video.form.element() + ' div.status '
+        var selected = $(el + 'a.selected')
+        var next = selected.next('a')[0] || $(el + ' a:first')
+        log(next)
+        $(selected).removeClass('selected')
+        $(next).addClass('selected')
+        $(el + "input[type='hidden']").val($.trim($(next).text()))
+      })
       // adds input hints, submit interaction
       forms.init()
       // input / autocomplete
