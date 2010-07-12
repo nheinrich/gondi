@@ -1,0 +1,6 @@
+- if style.include? 'delete'
+  %li
+    = hidden_field_tag 'video[related_athletes][]', athlete.name
+    = tag_link athlete.name, style, '#remove_athlete'
+- else
+  %li= tag_link athlete.name, style, '#remove_athlete'

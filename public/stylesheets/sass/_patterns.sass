@@ -31,6 +31,13 @@ div.lifted_box
   .bot
     :background url(/images/lifted_box.bot.png)
 
+// flash ---------------------------------------------------------------------
+
+.flash
+  :margin-bottom 5px
+  div
+    :height 20px
+
 // remove --------------------------------------------------------------------
 
     %li.video
@@ -86,8 +93,10 @@ li.video
     :padding 0 10px
     +ub
     :background #8a8a8a
+    h3
+      :height 27px
+      :overflow hidden
     .athletes
-      +hide
       :margin-left 5px
       h4
         +cufon
@@ -187,3 +196,48 @@ a.tag
     &.icon
       span.option
         :background-position right -66px
+
+// autocomplete --------------------------------------------------------------
+
+.acResults
+  :padding 0
+  :border 1px solid blue
+  :overflow hidden
+  ul
+    :width 100%
+    li
+      +block
+      :width 100%
+      :padding 2px 5px
+      :font-size 12px
+      :color= !txt_gray_medium
+      :cursor pointer
+      :overflow hidden
+      &.acSelect
+        :background pink
+
+.acLoading
+  :background url(/images/indicator.gif) right center no-repeat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

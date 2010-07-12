@@ -4,12 +4,13 @@
   .info
     %h3= video.title
     .athletes
-      - athletes = ['Jonas Michilot', 'Will Tuddenham', 'Chris Bradshaw', 'Desiree Melancon', 'Laura Hadar', 'Harrison Gordon', 'Zak Hale', 'Lance Hakker', 'Mike Hakker', 'Will Bateman']
       %ul
         %li
           %h4 Starring:
-        - athletes.each do |star|
-          %li= link_to star + ', ', '#'
+        - video.athletes.each do |athlete|
+          - name = athlete.name
+          - name += ', ' unless athlete == video.athletes.last
+          %li= link_to name, athlete_path(athlete)
     %ul.meta
       %li Views: TBD
       %li Saves: TBD

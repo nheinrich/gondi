@@ -1,0 +1,3 @@
+// adds athletes to the new/edit video form
+$("ul.tag_list").append("<%= escape_javascript(render(:partial => 'athletes/tag_link', :locals => {:athlete => @athlete, :style => 'icon delete'})) %>")
+

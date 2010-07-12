@@ -320,17 +320,15 @@ div.video_form div.video {
     div.video_form div.video a.embed span.text {
       width: 53px;
       padding-left: 21px; }
-div.video_form div.riders {
-  display: none; }
-  div.video_form div.riders h2 {
-    float: left;
-    width: 104px;
-    margin-bottom: 2px; }
-  div.video_form div.riders div.search_or_add {
-    float: left;
-    margin-top: 3px; }
-  div.video_form div.riders ul {
-    margin-bottom: 8px; }
+div.video_form div.athletes h2 {
+  float: left;
+  width: 104px;
+  margin-bottom: 2px; }
+div.video_form div.athletes div.search_or_add {
+  float: left;
+  margin-top: 3px; }
+div.video_form div.athletes ul {
+  margin-bottom: 8px; }
 
 div.session_form .fancy_input {
   margin-bottom: 10px; }
@@ -382,6 +380,11 @@ div.lifted_box {
   div.lifted_box .bot {
     background: url(/images/lifted_box.bot.png); }
 
+.flash {
+  margin-bottom: 5px; }
+  .flash div {
+    height: 20px; }
+
 li.video {
   display: block;
   position: relative;
@@ -414,8 +417,10 @@ li.video {
     padding: 0 10px;
     background: pink;
     background: #8a8a8a; }
+    li.video .info h3 {
+      height: 27px;
+      overflow: hidden; }
     li.video .info .athletes {
-      display: none;
       margin-left: 5px; }
       li.video .info .athletes h4 {
         visibility: hidden;
@@ -522,3 +527,23 @@ a.tag {
     background-position: left -22px; }
   a.tag:hover.icon span.option {
     background-position: right -66px; }
+
+.acResults {
+  padding: 0;
+  border: 1px solid blue;
+  overflow: hidden; }
+  .acResults ul {
+    width: 100%; }
+    .acResults ul li {
+      display: block;
+      width: 100%;
+      padding: 2px 5px;
+      font-size: 12px;
+      color: #9a9a9a;
+      cursor: pointer;
+      overflow: hidden; }
+      .acResults ul li.acSelect {
+        background: pink; }
+
+.acLoading {
+  background: url(/images/indicator.gif) right center no-repeat; }

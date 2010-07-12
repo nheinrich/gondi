@@ -31,10 +31,8 @@ var forms = {
       $('div.fancy_input input').hint('blur')
     },
     submit_buttons:function(){
-      $('.bevel_button.submit').live('click', function(){
-        $(this).click(function(){
-          $(this).parents('form').submit()
-        })
+      $('a.submit').live('click', function(){
+        $(this).parents('form').submit()
       })
     }
   }

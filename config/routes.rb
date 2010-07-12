@@ -8,6 +8,12 @@ Gondi::Application.routes.draw do |map|
   match 'facebook/sign_in' => 'facebook#sign_in', :as => 'fb_connect'
   match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
 
+  # new video form
+
+  match 'videos/add_athlete' => 'videos#add_athlete'
+
+
+  resources :athletes
   resources :videos
 
   # The priority is based upon order of creation:
