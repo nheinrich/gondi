@@ -20,14 +20,10 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new params[:video]
-    respond_to do |format|
-      if @video.save
-        format.html { redirect_to(@video, :notice => 'Video successfully created') }
-        format.js
-      else
-        format.html { render :action => 'new' }
-        format.js
-      end
+    if @video.save
+      respond_with(@video, :location => @video, :notice => 'Video successfully created')
+    else
+      respond_with(@video, :location => videos_url)
     end
   end
 
@@ -46,6 +42,8 @@ class VideosController < ApplicationController
 
   def destroy
     @video = Video.find params[:id]
+    @video_id = '#video_'+ @video.id.to_s
+    @video.destroy
   end
 
   def add_athlete
