@@ -324,8 +324,21 @@ div.video_form div.video {
   div.video_form div.video a.image {
     float: left; }
     div.video_form div.video a.image span.text {
-      width: 53px;
-      padding-left: 21px; }
+      width: 50px;
+      padding-left: 24px; }
+  div.video_form div.video .snapshot {
+    position: absolute;
+    top: 109px;
+    right: 26px;
+    width: 89px;
+    height: 31px;
+    overflow: hidden;
+    cursor: pointer; }
+    div.video_form div.video .snapshot input {
+      position: relative;
+      left: -323px;
+      opacity: 0;
+      cursor: pointer; }
 div.video_form div.athletes h2 {
   float: left;
   width: 140px;
@@ -335,6 +348,11 @@ div.video_form div.athletes div.search_or_add {
   margin-top: 3px; }
 div.video_form div.athletes ul {
   margin-bottom: 8px; }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  div.video_form div.video .snapshot input {
+    left: 0;
+    margin-top: 3px; } }
 
 div.session_form .fancy_input {
   margin-bottom: 10px; }

@@ -3,6 +3,7 @@
     .head
       %h2 Video
       .status
+        // todo: move to helper
         - status = determine_video_status(video)
         - ['active','inactive','review'].each do |state|
           - selected = (status == state) ? 'selected' : ''
@@ -18,7 +19,8 @@
       = fancy_input 'video[link]', 'link', 'Link', video.link
       = fancy_input 'video[source]', 'source', 'Source', video.source
       = bevel_button 'image', 'image gray'
-      = f.file_field 'video[snapshot]'
+      .snapshot
+        = f.file_field 'snapshot'
 
     .athletes
       %h2 Starring

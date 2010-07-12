@@ -87,8 +87,22 @@ div.video_form
     a.image
       +left
       span.text
-        :width 53px
-        :padding-left 21px
+        :width 50px
+        :padding-left 24px
+    .snapshot
+      +absolute
+      :top 109px
+      :right 26px
+      :width 89px
+      :height 31px
+      :overflow hidden
+      :cursor pointer
+      input
+        +relative
+        :left -323px // tested in mozilla
+        :opacity 0
+        :cursor pointer
+
   div.athletes
     h2
       +left
@@ -99,6 +113,15 @@ div.video_form
       :margin-top 3px
     ul
       :margin-bottom 8px
+
+// hack to properly position image upload button in safari
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  div.video_form div.video .snapshot input
+    :left 0
+    :margin-top 3px
+
+
+
 
 // session (new) -------------------------------------------------------------
 
