@@ -483,15 +483,19 @@ li.video {
       background: #9a9a9a; }
       li.video ul.options li.save a {
         height: 37px; }
-  li.video a.delete {
+  li.video a.delete, li.video a.edit {
     display: block;
     overflow: hidden;
     text-indent: 9999px;
     position: absolute;
     right: 4px;
-    top: 4px;
     width: 10px;
-    height: 10px;
+    height: 10px; }
+  li.video a.edit {
+    top: 4px;
+    background: yellow; }
+  li.video a.delete {
+    top: 14px;
     background: red; }
 
 ul.tag_list {

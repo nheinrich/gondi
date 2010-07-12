@@ -21,22 +21,19 @@ class VideosController < ApplicationController
   def create
     @video = Video.new params[:video]
     if @video.save
-      respond_with(@video, :location => @video, :notice => 'Video successfully created')
+      respond_with(@video, :location => root_url, :notice => 'Video successfully created')
     else
-      respond_with(@video, :location => videos_url)
+      respond_with(@video, :location => root_url)
     end
   end
 
   def update
     @video = Video.find params[:id]
-    respond_to do |format|
-      if @video.update_attributes(params[:video])
-        format.html { redirect_to(@video, :notice => 'Video successfully updated') }
-        format.js
-      else
-        format.html { render :action => 'edit' }
-        format.js
-      end
+    @selector = '#video_'+@video.id.to_s
+    if @video.update_attributes(params[:video])
+      respond_with(@video, :location => root_url, :notice => 'Video successfully updated')
+    else
+      respond_with(@video, :location => root_url)
     end
   end
 

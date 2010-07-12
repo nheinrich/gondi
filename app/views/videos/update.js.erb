@@ -1,0 +1,4 @@
+$("<%= escape_javascript(@selector) %>").replaceWith("<%= escape_javascript(render 'videos/video', :video => @video) %>").fadeIn('fast')
+
+video.form.hide()
+video.list.fix_fonts("<%= escape_javascript(@selector) %>")

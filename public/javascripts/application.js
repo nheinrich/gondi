@@ -3,8 +3,6 @@
 $(document).ready(function() {
   facebook.init();
   typography.init();
-
-  $('a.new_video').click()
 })
 
 // views ---------------------------------------------------------------------
@@ -30,8 +28,7 @@ var video = {
       var $input = $(this.athlete_search())
       $input.autocomplete({
         url: '/athletes.js',
-        matchContains: 1,
-        onItemSelect: video.form.select_athlete
+        matchContains: 1
       });
       // adds athlete on keypress of enter (13)
       $input.keypress(function(e){
@@ -51,6 +48,9 @@ var video = {
       $(this.el + ' .buttons a.cancel').live('click',function(){
         video.form.hide()
       })
+    },
+    select_athlete:function(){
+
     },
     selector:function(str){
       return this.element() + ' ' + str

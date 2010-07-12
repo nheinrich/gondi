@@ -19,7 +19,6 @@
     %li.watch= link_to 'Watch', '/watch/'+video.title
     %li.save= link_to 'Save', '/save/3'
   - if current_admin
-    = link_to 'delete', video_path(video), | 
-      :method => 'delete', :remote => true, :class => 'delete', | 
-      :confirm => 'delete this video?'
+    = link_to 'delete', video_path(video), :class => 'delete', :remote => true, :method => 'delete', :confirm => 'delete this video?'
+    = link_to 'edit', edit_video_path(video), :class => 'edit', :remote => true
 

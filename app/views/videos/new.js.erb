@@ -1,9 +1,7 @@
 if ($("div.video_form")[0]) {
-  $("div.admin").fadeOut()
-  $("div.admin div.video_form").remove()
-  $("div.admin span.hr").remove()
+  video.form.hide()
 } else {
-  $("div.admin").hide().prepend("<%= escape_javascript(render(:partial => 'form')) %>").fadeIn('fast')
+  $("div.admin").hide().prepend("<%= escape_javascript(render(:partial => 'form', :locals => { :video => @video })) %>").fadeIn('fast')
+  video.form.init()
 }
 
-video.form.init()

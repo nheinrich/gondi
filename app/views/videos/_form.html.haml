@@ -1,5 +1,5 @@
 = lifted_box 'video_form' do
-  = form_for @video, :remote => true do |f|
+  = form_for video, :remote => true do |f|
     .head
       %h2 Video
       = bevel_button 'status', 'status gray'
@@ -10,12 +10,12 @@
       /   %li review
     %span.hr
     .video
-      = fancy_input 'video[title]', 'title', 'Title', @video.title
-      = fancy_input 'video[width]', 'width', 'Width', @video.width
-      = fancy_input 'video[height]', 'height', 'Height', @video.height
-      = fancy_input 'video[duration]', 'duration', 'Duration', @video.duration
-      = fancy_input 'video[link]', 'link', 'Link', @video.link
-      = fancy_input 'video[source]', 'source', 'Source', @video.source
+      = fancy_input 'video[title]', 'title', 'Title', video.title
+      = fancy_input 'video[width]', 'width', 'Width', video.width
+      = fancy_input 'video[height]', 'height', 'Height', video.height
+      = fancy_input 'video[duration]', 'duration', 'Duration', video.duration
+      = fancy_input 'video[link]', 'link', 'Link', video.link
+      = fancy_input 'video[source]', 'source', 'Source', video.source
       = bevel_button 'embed', 'embed gray'
 
     .athletes
@@ -23,7 +23,7 @@
       = fancy_input 'riders', 'round icon athlete_search', 'Search / Add'
       %span.hr
       %ul.tag_list
-        - @video.athletes.each do |athlete|
+        - video.athletes.each do |athlete|
           = render 'athletes/tag_link', :athlete => athlete, :style => 'icon delete'
     %span.hr
     .buttons
