@@ -3,8 +3,6 @@
 $(document).ready(function() {
   facebook.init();
   typography.init();
-
-  $('a.new_video').click()
 })
 
 // views ---------------------------------------------------------------------
