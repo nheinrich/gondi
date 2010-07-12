@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100711233501) do
+ActiveRecord::Schema.define(:version => 20100712031158) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -24,11 +24,18 @@ ActiveRecord::Schema.define(:version => 20100711233501) do
     t.datetime "updated_at"
   end
 
-  create_table "riders", :force => true do |t|
+  create_table "athletes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "athletes_videos", :id => false, :force => true do |t|
+    t.integer "athlete_id"
+    t.integer "video_id"
+  end
+
+  add_index "athletes_videos", ["athlete_id", "video_id"], :name => "index_athletes_videos_on_athlete_id_and_video_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
