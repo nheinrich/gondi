@@ -84,6 +84,7 @@ div.video_form
         :width 53px
         :padding-left 21px
   div.riders
+    +hide
     h2
       +left
       :width 104px
@@ -93,4 +94,30 @@ div.video_form
       :margin-top 3px
     ul
       :margin-bottom 8px
+
+// session (new) -------------------------------------------------------------
+
+div.session_form
+  .fancy_input
+    :margin-bottom 10px
+    input[type='text'],
+    input[type='password']
+      :width 200px
+  .rememberable
+    +cleft
+    :height 20px
+    :margin 5px 0 10px
+    :font-size 12px
+  .session_links
+    :margin-top 40px
+    a
+      +left
+      :margin-right 10px
+      :font-size 12px
+      :text-decoration underline
+      :color= !txt_gray_dark
+    br
+      +hide // hide devises brs
+
+
 

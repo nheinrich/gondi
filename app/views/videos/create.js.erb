@@ -1,0 +1,7 @@
+$("ul.videos").prepend("<%= escape_javascript(render 'videos/video', :video => @video) %>").fadeIn('fast')
+
+$("div.admin").slideToggle()
+$("div.admin div.video_form").remove()
+$("div.admin span.hr").remove()
+
+video.list.fix_fonts("<%= escape_javascript('#video_' + @video.id.to_s) %>")

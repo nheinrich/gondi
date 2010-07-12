@@ -12,7 +12,7 @@ module LayoutHelper
   # use: page_title('Artworks') # => ADMAC / Artworks
   def page_title
     title = @page_title ? "/ #{@page_title}" : ''
-    content_tag(:title, 'gondi ' + title)
+    content_tag(:title, 'GONDI.tv ' + title)
   end
 
   # allows specification of body class from view

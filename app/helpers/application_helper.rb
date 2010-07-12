@@ -13,13 +13,15 @@ module ApplicationHelper
 
   # patterns -----------------------------------------------------------------
 
-  def fancy_input(name, style='', title='')
+  def fancy_input(name, style='', title='', value='')
     capture_haml do
       title = name.capitalize if title.empty?
       style = name if style.empty?
+      type = name.include?('password') ? 'password' : 'text'
+
       haml_tag :div, {:class => 'fancy_input ' + style} do
         haml_tag :span, {:class  => 'input'} do
-          haml_tag :input, {:type => 'text', :name => 'name', :title => title}
+          haml_tag :input, {:type => type, :name => name, :title => title, :value => value}
         end
         haml_tag :span, {:class => 'tail'}
       end
@@ -62,6 +64,12 @@ module ApplicationHelper
         haml_tag :span, ')'
       end
     end
+  end
+
+  def save_or_submit
+    controller.action_name == 'new' ? 'submit' : 'save'
+
+
   end
 
 end

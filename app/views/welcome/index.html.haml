@@ -5,5 +5,6 @@
 
 // body ----------------------------------------------------------------------
 
-- 4.times do
-  = render :partial => 'videos/video'
+%ul.videos
+  - @videos.each do |video|
+    = render 'videos/video', :video => video

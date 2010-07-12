@@ -21,9 +21,22 @@ var facebook = {
 
 // inputs --------------------------------------------------------------------
 
-var inputs = {
+var forms = {
   init:function(){
-    $('div.fancy_input input').hint('blur')
+    this.setup.text_field_blur()
+    this.setup.submit_buttons()
+  },
+  setup:{
+    text_field_blur:function(){
+      $('div.fancy_input input').hint('blur')
+    },
+    submit_buttons:function(){
+      $('.bevel_button.submit').live('click', function(){
+        $(this).click(function(){
+          $(this).parents('form').submit()
+        })
+      })
+    }
   }
 }
 

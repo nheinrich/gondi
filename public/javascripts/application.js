@@ -3,7 +3,8 @@
 $(document).ready(function() {
   facebook.init();
   typography.init();
-  inputs.init();
+
+  $('a.new_video').click()
 })
 
 // views ---------------------------------------------------------------------
@@ -18,15 +19,18 @@ var video = {
     },
     init:function(){
       typography.replace([this.selector('h2')], true)
-
-      inputs.init()
+      forms.init()
     }
   },
   list:{
     init:function(){
-      typography.shadow(['li.video h3'], '#555')
-      typography.shadow(['li.video ul.options a'])
-      typography.replace(['li.video h4','li.video .stars a'])
+      this.fix_fonts()
+    },
+    fix_fonts:function(container){
+      var el = container ? container + ' ' : 'li.video '
+      typography.shadow([el + 'h3'], '#555')
+      typography.shadow([el + 'ul.options a'])
+      typography.replace([el + 'h4', el + '.athletes a'])
     }
   }
 }

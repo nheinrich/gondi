@@ -70,6 +70,9 @@ a {
 .right {
   float: right; }
 
+.hide {
+  display: none; }
+
 br.clear {
   display: block;
   display: block;
@@ -119,7 +122,7 @@ a.bevel_button {
     float: left;
     height: 26px;
     margin-right: -10px;
-    padding: 6px 10px 0 18px;
+    padding: 6px 10px 0 15px;
     font-size: 16px;
     font-family: "Georgia";
     font-style: italic;
@@ -317,15 +320,39 @@ div.video_form div.video {
     div.video_form div.video a.embed span.text {
       width: 53px;
       padding-left: 21px; }
-div.video_form div.riders h2 {
-  float: left;
-  width: 104px;
-  margin-bottom: 2px; }
-div.video_form div.riders div.search_or_add {
-  float: left;
-  margin-top: 3px; }
-div.video_form div.riders ul {
-  margin-bottom: 8px; }
+div.video_form div.riders {
+  display: none; }
+  div.video_form div.riders h2 {
+    float: left;
+    width: 104px;
+    margin-bottom: 2px; }
+  div.video_form div.riders div.search_or_add {
+    float: left;
+    margin-top: 3px; }
+  div.video_form div.riders ul {
+    margin-bottom: 8px; }
+
+div.session_form .fancy_input {
+  margin-bottom: 10px; }
+  div.session_form .fancy_input input[type='text'],
+  div.session_form .fancy_input input[type='password'] {
+    width: 200px; }
+div.session_form .rememberable {
+  display: block;
+  clear: left;
+  height: 20px;
+  margin: 5px 0 10px;
+  font-size: 12px; }
+div.session_form .session_links {
+  margin-top: 40px; }
+  div.session_form .session_links a {
+    float: left;
+    margin-right: 10px;
+    font-size: 12px;
+    text-decoration: underline;
+    color: #616161; }
+  div.session_form .session_links br {
+    display: none; }
 
 span.hr {
   display: block;
@@ -387,9 +414,10 @@ li.video {
     padding: 0 10px;
     background: pink;
     background: #8a8a8a; }
-    li.video .info .stars {
+    li.video .info .athletes {
+      display: none;
       margin-left: 5px; }
-      li.video .info .stars h4 {
+      li.video .info .athletes h4 {
         visibility: hidden;
         float: left;
         height: 15px;
@@ -397,15 +425,15 @@ li.video {
         font-size: 15px;
         text-transform: uppercase;
         color: white; }
-      li.video .info .stars ul {
+      li.video .info .athletes ul {
         float: left; }
-        li.video .info .stars ul li {
+        li.video .info .athletes ul li {
           display: block;
           float: left; }
-        li.video .info .stars ul li {
+        li.video .info .athletes ul li {
           display: block;
           padding-right: 3px; }
-          li.video .info .stars ul li a {
+          li.video .info .athletes ul li a {
             display: block;
             visibility: hidden;
             font-family: "Gondvetica", "Helvetica Neue", "Arial";
