@@ -6,11 +6,26 @@ class Video < ActiveRecord::Base
   default_scope :order => 'videos.created_at DESC'
   scope :active, where("status = ?", 'active')
 
+
+
+
+
   def related_athletes=(athlete_names)
-    athlete_names.each do |athlete_name|
-      athlete = Athlete.find_or_create_by_name(athlete_name)
-      athletes << athlete unless athletes.include? athlete
+    # create a list of all existing athletes
+    diff = athletes.map(&:name)
+    athlete_names.each do |name|
+      # see if an existing athlete exists, if not create one
+      athlete = Athlete.find_or_create_by_name(name)
+      unless athletes.include? athlete
+        # add athlete to athletes
+        athletes << athlete
+      else
+        # remove athlete from diff list
+        diff.delete_if { |a| a == athlete.name }
+      end
     end
+    # delete all athletes that are no longer related
+    athletes.delete(Athlete.find_all_by_name(diff))
   end
 
 end
