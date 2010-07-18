@@ -17,4 +17,22 @@ module VideoHelper
     end
   end
 
+  def save_button(video)
+    if user = current_user
+      text = user.has_saved(video) ? 'Saved' : 'Save'
+      style = 'save_video ' + text.parameterize('_')
+      id = 'video_' + video.id.to_s
+      capture_haml do
+        haml_tag :a, {:href => save_video_path(video), :id => id, :class => style, "data-remote" => "true" } do
+          haml_tag :span, text, {:class => 'text'}
+        end
+      end
+    else
+      capture_haml do
+        haml_tag :a, 'Yeah!', { :href => pitch_path,
+          :class => 'save_video save', "data-remote" => "true" }
+      end
+    end
+  end
+
 end

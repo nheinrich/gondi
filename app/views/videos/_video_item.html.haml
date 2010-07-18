@@ -6,7 +6,7 @@
     .athletes
       %ul
         %li
-          %h4 Starring:
+          / %h4 Starring:
         - video.athletes.each do |athlete|
           - name = athlete.name
           - name += ', ' unless athlete == video.athletes.last
@@ -16,8 +16,9 @@
       %li Saves: TBD
       %li= "#{distance_of_time_in_words_to_now video.created_at} ago"
   %ul.options
+    // if you haven't watched the video, mark it new
     %li.watch= link_to 'Watch', watch_video_path(video), :remote => true
-    %li.save= link_to 'Save', save_video_path(video), :remote => true
+    %li.save= save_button(video)
   - if current_admin
     = link_to 'delete', video_path(video), :class => 'delete', :remote => true, :method => 'delete', :confirm => 'delete this video?'
     = link_to 'edit', edit_video_path(video), :class => 'edit', :remote => true

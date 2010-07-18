@@ -16,11 +16,23 @@ Gondi::Application.routes.draw do |map|
 
   # videos
 
-  match 'videos/add_athlete' => 'videos#add_athlete'
   match 'watch/:id' => 'videos#show', :as => 'watch_video'
   match 'save/:id' => 'videos#save', :as => 'save_video'
+  match 'saves' => 'videos#saves', :as => 'saves'
+  match 'videos/add_athlete' => 'videos#add_athlete'
 
   resources :videos
+
+  # static / marketing
+
+  match 'pitch' => 'common#pitch', :as => 'pitch'
+
+  # welcome
+
+  root :to => 'welcome#index'
+  match '/', :to => 'welcome#index', :as => 'admin_root'
+
+  # documentation
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,11 +80,6 @@ Gondi::Application.routes.draw do |map|
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-
-  root :to => 'welcome#index'
-  match '/', :to => 'welcome#index', :as => 'admin_root'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,10 +1,6 @@
 // head ----------------------------------------------------------------------
 
-- content_for :on_ready do
-  video.list.init()
 
 // body ----------------------------------------------------------------------
 
-%ul.videos
-  - @videos.each do |video|
-    = render 'videos/video_item', :video => video
+// some day this may be a home page, currently using the videos/list

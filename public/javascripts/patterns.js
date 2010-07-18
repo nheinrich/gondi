@@ -52,18 +52,19 @@ var hoverable = {
 
 // typography ----------------------------------------------------------------
 
+// todo: refactor the option methods into one method that accepts options
+
 var typography = {
   init:function(){
     this.shadow(['h1 a','.footer a'])
   },
-  hoverable:function(elements){
-    Cufon.replace(elements, { hover: true})
-    this.show(elements)
-  },
   replace:function(elements){
     Cufon.replace(elements)
     this.show(elements)
-
+  },
+  hoverable:function(elements){
+    Cufon.replace(elements, { hover: true})
+    this.show(elements)
   },
   shadow:function(elements, color){
     color = color || '#888'
@@ -71,11 +72,122 @@ var typography = {
     Cufon.replace(elements, { textShadow: declaration})
     this.show(elements)
   },
+  hoverable_with_shadow:function(elements, color){
+    color = color || '#888'
+    var declaration = color + ' 1px 1px'
+    Cufon.replace(elements, { textShadow: declaration, hover: true})
+    this.show(elements)
+  },
   show:function(elements){
     setTimeout(function(){
       $(elements.join(', ')).css('visibility','visible').fadeIn('slow')
     },10)
 
+  }
+}
+
+// video ---------------------------------------------------------------------
+
+var video = {}
+
+// video form ----------
+
+video.form = {
+  element:function(el){
+    return this.el = el ? el : (this.el ? this.el : '.video_form')
+  },
+  athlete_search:function(el){
+    return this.as = el ? el : (this.as ? this.as : this.el + ' .athlete_search input:text')
+  },
+  hide:function(){
+    $("div.admin div.video_form").slideToggle().remove()
+    $("div.admin span.hr").remove()
+  },
+  init:function(){
+    // fixes fonts on the form
+    typography.replace([this.selector('h2')], true)
+    // status toggle
+    $(this.el + ' div.status a').live('click',function(){
+      var el = video.form.element() + ' div.status '
+      var selected = $(el + 'a.selected')
+      var next = selected.next('a')[0] || $(el + ' a:first')
+      log(next)
+      $(selected).removeClass('selected')
+      $(next).addClass('selected')
+      $(el + "input[type='hidden']").val($.trim($(next).text()))
+    })
+    // adds input hints, submit interaction
+    forms.init()
+    // input / autocomplete
+    var $input = $(this.athlete_search())
+    $input.autocomplete({
+      url: '/athletes.js',
+      matchContains: 1
+    });
+    // adds athlete on keypress of enter (13)
+    $input.keypress(function(e){
+      if (e.keyCode == 13) {
+        var name = $(this).val()
+        $.get('/videos/add_athlete', { athlete: name }, function(){
+          $(video.form.athlete_search()).val('')
+        }, 'script')
+      }
+    })
+    // remove athlete icon links
+    $(this.el + ' .athletes ul.tag_list a').live('click',function(){
+      $(this).parents('li').fadeOut().remove()
+      return false
+    })
+    // cancel button
+    $(this.el + ' .buttons a.cancel').live('click',function(){
+      video.form.hide()
+    })
+  },
+  select_athlete:function(){
+
+  },
+  selector:function(str){
+    return this.element() + ' ' + str
+  }
+}
+
+// video list ----------
+
+video.list = {
+  init:function(){
+    this.fix_fonts()
+    this.hovers()
+  },
+  hovers:function(){
+    // watch button
+    var watch = $('ul.options li.watch a')
+    watch.data('bg_color', watch.css('background-color'))
+    $('ul.options li.watch a').hover(
+      function(){ $(this).stop().animate({ backgroundColor: "#fff600" }) },
+      function(){ $(this).stop().animate({ backgroundColor: $(this).data('bg_color') }) }
+    )
+    // save button
+    var watch = $('ul.options li.save a')
+    watch.data('bg_color', watch.css('background-color'))
+    $('ul.options li.save a').hover(
+      function(){ $(this).stop().animate({ backgroundColor: "#00ff66" }) },
+      function(){ $(this).stop().animate({ backgroundColor: $(this).hasClass('saved') ? '#00ff66' : '#9a9a9a' }) }
+    )
+  },
+  fix_fonts:function(container){
+    var el = container ? container + ' ' : 'li.video '
+    typography.shadow([el + 'h3'], '#555')
+    typography.shadow([el + 'ul.options a'])
+    typography.replace([el + 'h4', el + '.athletes a'])
+  },
+  save:function(id, text){
+    var btn = $(id)
+    var span = btn.find('span.text')
+    span.fadeOut('fast',function(){
+      $(this).html(text)
+      typography.hoverable_with_shadow([id + ' span'])
+      $(this).parents('a:first').removeClass('save saved').addClass(text.toLowerCase())
+    }).fadeIn('fast')
   }
 }
 

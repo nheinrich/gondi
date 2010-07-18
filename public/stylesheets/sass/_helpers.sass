@@ -29,27 +29,26 @@
 = rounded_right(!radius = 4px)
   :-moz-border-radius-topright !radius
   :-moz-border-radius-bottomright !radius
-  :-webkit-border-radius-top-right !radius
-  :-webkit-border-radius-bottom-right !radius
+  :-webkit-border-top-right-radius !radius
+  :-webkit-border-bottom-right-radius !radius
 
 = rounded_left(!radius = 4px)
   :-moz-border-radius-topleft !radius
   :-moz-border-radius-bottomleft !radius
-  :-webkit-border-radius-top-left !radius
-  :-webkit-border-radius-bottom-left !radius
+  :-webkit-border-top-left-radius !radius
+  :-webkit-border-bottom-left-radius- !radius
 
 = rounded_top(!radius = 4px)
   :-moz-border-radius-topleft !radius
   :-moz-border-radius-topright !radius
-  :-webkit-border-radius-top-left !radius
-  :-webkit-border-radius-top-right !radius
+  :-webkit-border-top-left-radius !radius
+  :-webkit-border-top-right-radius !radius
 
 = rounded_bottom(!radius = 4px)
   :-moz-border-radius-bottomleft !radius
   :-moz-border-radius-bottomright !radius
-  :-webkit-border-radius-bottom-left !radius
-  :-webkit-border-radius-bottom-right !radius
-
+  :-webkit-border-bottom-left-radius !radius
+  :-webkit-border-bottom-right-radius !radius
 
 = box_shadow(!size = 30px, !color = #101010)
   :-moz-box-shadow 0px 0px !size !color
@@ -132,6 +131,12 @@
 
 .hide
   +hide
+
+= visible
+  :visibility visible
+
+= invisible
+  :visibility hidden
 
 = transparent
   :background transparent

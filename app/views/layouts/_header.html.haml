@@ -1,7 +1,7 @@
 .header
   %h1
     = link_to @title, '/'
-    
+
   // %span= videos_total(134)
 
   %ul.nav.gondvetica
@@ -9,7 +9,7 @@
       %li= link_to 'new video', new_video_path, :remote => true, :class => 'new_video'
       %li= link_to 'sign out', destroy_admin_session_path, :title => current_admin.email
     - elsif current_user
-      %li= link_to 'your saves', '/your_saves_path', :class => 'your_saves'
+      %li= link_to 'your saves', saves_path, :class => 'your_saves'
       %li= link_to 'sign out', sign_out_path, :title => current_user.email
     - else
       %li

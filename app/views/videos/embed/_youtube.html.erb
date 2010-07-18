@@ -2,14 +2,17 @@
 <% width = @video.width %>
 <% height = @video.height %>
 
+<% color_1 = "000000" %>
+<% color_2 = "999999" %>
+
 <object width="<%= width %>" height="<%= height %>">
-  <param name="movie" value="http://www.youtube.com/v/<%= id %>&amp;hl=en_US&amp;fs=1" />
+  <param name="movie" value="http://www.youtube.com/v/<%= id %>&amp;hl=en_US&amp;fs=1?color1=0x<%= color_1 %>&amp;color2=0x<%= color_2 %>" />
   <param name="allowFullScreen" value="true" />
   <param name="allowscriptaccess" value="always" />
-  <embed src="http://www.youtube.com/v/<%= id %>&amp;hl=en_US&amp;fs=1" 
-    type="application/x-shockwave-flash" 
-    allowscriptaccess="always" 
-    allowfullscreen="true" 
+  <embed src="http://www.youtube.com/v/<%= id %>&amp;hl=en_US&amp;fs=1?color1=0x<%= color_1 %>&amp;color2=0x<%= color_2 %>"
+    type="application/x-shockwave-flash"
+    allowscriptaccess="always"
+    allowfullscreen="true"
     width="<%= width %>" height="<%= height %>">
   </embed>
 </object>
