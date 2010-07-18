@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100718022624) do
+ActiveRecord::Schema.define(:version => 20100718205541) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(:version => 20100718022624) do
   end
 
   add_index "athletes_videos", ["athlete_id", "video_id"], :name => "index_athletes_videos_on_athlete_id_and_video_id"
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"

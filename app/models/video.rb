@@ -3,7 +3,8 @@ class Video < ActiveRecord::Base
   has_and_belongs_to_many :athletes
   has_friendly_id :title, :use_slug => true
   has_attached_file :snapshot, :styles => { :thumb => "144x108>" }
-  belongs_to :user
+  has_many :favorites
+  has_many :users, :through => :favorites
 
   default_scope :order => 'videos.created_at DESC'
   scope :active, where("status = ?", 'active')

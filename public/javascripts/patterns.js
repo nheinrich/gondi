@@ -180,7 +180,7 @@ video.list = {
     typography.shadow([el + 'ul.options a'])
     typography.replace([el + 'h4', el + '.athletes a'])
   },
-  save:function(id, text){
+  favorite:function(id, text){
     var btn = $(id)
     var span = btn.find('span.text')
     span.fadeOut('fast',function(){

@@ -1,5 +1,4 @@
 class VideosController < ApplicationController
-  before_filter :authenticate_user!, :only => [:save, :saves]
   respond_to :html, :js
 
   def index
@@ -47,26 +46,6 @@ class VideosController < ApplicationController
     @video = Video.find params[:id]
     @video_id = '#video_'+ @video.id.to_s
     @video.destroy
-  end
-
-  def save
-    user = User.find current_user.id
-    @video = Video.find params[:id]
-    if user.has_saved(@video)
-      user.videos.delete(@video)
-      @text = 'save'
-    else
-      user.videos << @video
-      @text = 'saved'
-    end
-    # prepare data to pass to js
-    @id = '#video_' + @video.id.to_s
-  end
-
-  def saves
-    @title = 'My Saves'
-    @videos = current_user.videos
-    render :action => 'list'
   end
 
   def add_athlete

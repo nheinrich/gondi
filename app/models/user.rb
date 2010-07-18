@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   # setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :remember_me
 
-  has_many :videos
+  has_many :favorites
+  has_many :videos, :through => :favorites
 
   def self.facebook_login(access_token)
     # retrieve user info from currently logged in user
@@ -27,8 +28,8 @@ class User < ActiveRecord::Base
     user
   end
 
-  def has_saved(video)
-    videos.map(&:id).include? video.id
+  def has_favorited(video)
+    favorites.map(&:video_id).include? video.id
   end
 
 end

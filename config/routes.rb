@@ -14,11 +14,14 @@ Gondi::Application.routes.draw do |map|
 
   resources :athletes
 
+  # favorites
+
+  match 'favorite/:id' => 'favorites#toggle', :as => 'favorite'
+  match 'favorites' => 'favorites#index', :as => 'favorites'
+
   # videos
 
   match 'watch/:id' => 'videos#show', :as => 'watch_video'
-  match 'save/:id' => 'videos#save', :as => 'save_video'
-  match 'saves' => 'videos#saves', :as => 'saves'
   match 'videos/add_athlete' => 'videos#add_athlete'
 
   resources :videos
