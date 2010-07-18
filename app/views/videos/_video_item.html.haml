@@ -1,0 +1,24 @@
+%li.video{ :id => "video_"+video.id.to_s }
+  = image_tag video.snapshot.url
+  %span.duration= video.duration
+  .info
+    %h3= video.title
+    .athletes
+      %ul
+        %li
+          %h4 Starring:
+        - video.athletes.each do |athlete|
+          - name = athlete.name
+          - name += ', ' unless athlete == video.athletes.last
+          %li= link_to name, athlete_path(athlete)
+    %ul.meta
+      %li Views: TBD
+      %li Saves: TBD
+      %li= "#{distance_of_time_in_words_to_now video.created_at} ago"
+  %ul.options
+    %li.watch= link_to 'Watch', watch_video_path(video), :remote => true
+    %li.save= link_to 'Save', save_video_path(video), :remote => true
+  - if current_admin
+    = link_to 'delete', video_path(video), :class => 'delete', :remote => true, :method => 'delete', :confirm => 'delete this video?'
+    = link_to 'edit', edit_video_path(video), :class => 'edit', :remote => true
+

@@ -8,9 +8,10 @@
     = csrf_meta_tag
 
   %body{ :class => yield(:page_style) }
+    = render :partial => 'layouts/popup'
     .container
       = render :partial => 'layouts/header'
-      %span.hr      
+      %span.hr
       = render :partial => 'layouts/flash'
       = render :partial => 'layouts/admin'
 
@@ -18,8 +19,8 @@
         = yield :layout
 
       %span.hr
-      
-      = render :partial => 'layouts/footer'    
+
+      = render :partial => 'layouts/footer'
 
 
     = render :partial => 'layouts/javascripts'

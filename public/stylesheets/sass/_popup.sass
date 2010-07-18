@@ -1,0 +1,51 @@
+
+/* popup ------------------------------------------------------------------ */
+
+#popup
+  +hide
+  :position fixed
+  :width 100%
+  :height 100%
+  :padding-top 40px
+  :z-index 100
+  :background url(/images/translucent_80p.png)
+
+  .window
+    +relative
+    :margin 0 auto
+    :padding 20px
+    :background #000
+
+
+/* watch ------------------------------------------------------------------ */
+
+#popup div.watch
+  :width 780px
+  .player
+    :height 180px
+    :margin-bottom 20px
+    :background #222
+  .meta
+    li.video // overwrites a good amount of existing styles
+      :background transparent
+      :margin-bottom 0
+      :padding 0
+      .info
+        :background transparent
+        .athletes
+          +relative
+          ul li a
+            :color #fff
+      ul.options
+        li.watch
+          +hide
+        li.save
+          :background= !green
+
+
+
+
+
+
+
+

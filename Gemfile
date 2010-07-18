@@ -7,7 +7,7 @@ gem 'rails', '3.0.0.beta4'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'devise', '>= 1.1.rc2'
-gem 'friendly_id'
+gem 'friendly_id', '~> 3.0'
 gem 'haml', '>= 3.0.0.beta.3'
 gem 'mini_fb'
 gem 'mysql'

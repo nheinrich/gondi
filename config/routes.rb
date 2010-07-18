@@ -3,17 +3,23 @@ Gondi::Application.routes.draw do |map|
   devise_for :admins
   devise_for :users
 
-  # facebook: called after login
+  # facebook
 
+  # called after login
   match 'facebook/sign_in' => 'facebook#sign_in', :as => 'fb_connect'
+  # checks fb status before sign out
   match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
 
-  # new video form
-
-  match 'videos/add_athlete' => 'videos#add_athlete'
-
+  # athletes
 
   resources :athletes
+
+  # videos
+
+  match 'videos/add_athlete' => 'videos#add_athlete'
+  match 'watch/:id' => 'videos#show', :as => 'watch_video'
+  match 'save/:id' => 'videos#save', :as => 'save_video'
+
   resources :videos
 
   # The priority is based upon order of creation:

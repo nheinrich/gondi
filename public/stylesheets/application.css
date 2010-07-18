@@ -412,7 +412,7 @@ div.lifted_box {
 li.video {
   display: block;
   position: relative;
-  width: 698px;
+  width: 100%;
   height: 108px;
   padding: 1px;
   margin-bottom: 10px;
@@ -435,7 +435,7 @@ li.video {
   li.video .info {
     position: relative;
     float: left;
-    width: 388px;
+    width: 389px;
     height: 100%;
     margin: 0 1px;
     padding: 0 10px;
@@ -514,13 +514,14 @@ li.video {
     position: absolute;
     right: -14px;
     width: 10px;
-    height: 10px; }
+    height: 10px;
+    opacity: 0.1; }
   li.video a.edit {
     top: 4px;
-    background: white; }
+    background: yellow; }
   li.video a.delete {
     top: 14px;
-    background: black; }
+    background: red; }
 
 ul.tag_list {
   display: inline-block; }
@@ -585,3 +586,40 @@ a.tag {
 
 .acLoading {
   background: url(/images/indicator.gif) right center no-repeat; }
+
+/* popup ------------------------------------------------------------------ */
+#popup {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+  z-index: 100;
+  background: url(/images/translucent_80p.png); }
+  #popup .window {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    background: black; }
+
+/* watch ------------------------------------------------------------------ */
+#popup div.watch {
+  width: 780px; }
+  #popup div.watch .player {
+    height: 180px;
+    margin-bottom: 20px;
+    background: #222222; }
+  #popup div.watch .meta li.video {
+    background: transparent;
+    margin-bottom: 0;
+    padding: 0; }
+    #popup div.watch .meta li.video .info {
+      background: transparent; }
+      #popup div.watch .meta li.video .info .athletes {
+        position: relative; }
+        #popup div.watch .meta li.video .info .athletes ul li a {
+          color: white; }
+    #popup div.watch .meta li.video ul.options li.watch {
+      display: none; }
+    #popup div.watch .meta li.video ul.options li.save {
+      background: #00ff66; }
