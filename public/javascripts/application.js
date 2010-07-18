@@ -1,8 +1,9 @@
 // common
 
 $(document).ready(function() {
-  facebook.init();
-  typography.init();
+  facebook.init()
+  hoverable.init()
+  typography.init()
 })
 
 // views ---------------------------------------------------------------------

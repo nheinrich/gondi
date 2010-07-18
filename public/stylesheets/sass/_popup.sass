@@ -15,33 +15,45 @@
     :margin 0 auto
     :padding 20px
     :background #000
-
+    +box_shadow
 
 /* watch ------------------------------------------------------------------ */
 
 #popup div.watch
-  :width 780px
+  :padding 0 0 35px
+  +rounded_bottom(6px)
   .player
-    :height 180px
     :margin-bottom 20px
-    :background #222
-  .meta
-    li.video // overwrites a good amount of existing styles
-      :background transparent
-      :margin-bottom 0
-      :padding 0
-      .info
-        :background transparent
-        .athletes
-          +relative
-          ul li a
-            :color #fff
-      ul.options
-        li.watch
-          +hide
-        li.save
-          :background= !green
-
+  .panel
+    +absolute
+    :right 6px
+    :bottom 2px
+    :left 6px
+    :height 25px
+    :overflow hidden
+    :border-top 1px solid #010101
+    h2 a
+      +left
+      :width 87%
+      :font-size 16px
+      :color #222
+      &:hover
+        :color #555
+    a.save
+      +block
+      +right
+      :padding 3px 6px
+      :font-size 11px
+      :font-weight normal
+      +shadowed(#111)
+      :color #ddd
+      :background #222
+      +rounded
+      &:hover
+        :background #555
+  .hover
+    h2
+      :color pink
 
 
 

@@ -1,5 +1,11 @@
-.window.watch
+.window.watch{:style => "width:#{@video.width}px; height:#{@video.height}px"}
   .player
-  .meta
-    =render 'videos/video_item', :video => video
-  
+    - case(@video.provider.parameterize('_'))
+    - when 'vimeo' then p = 'vimeo'
+    - when 'youtube' then p = 'youtube'
+
+    = render 'videos/embed/' + p
+
+  .panel.hoverable
+    %h2= link_to @video.title, '#'
+    = link_to 'save', save_video_path(@video), :class => 'save', :remote => true

@@ -315,10 +315,12 @@ div.video_form div.video {
     width: 75px; }
   div.video_form div.video .duration {
     margin-right: 0; }
-  div.video_form div.video .link input {
+  div.video_form div.video .provider input {
     display: block;
     clear: left;
-    width: 381px; }
+    width: 178px; }
+  div.video_form div.video .provider_id input {
+    width: 177px; }
   div.video_form div.video .source input {
     width: 176px; }
   div.video_form div.video a.image {
@@ -422,16 +424,23 @@ li.video {
     float: left;
     width: 144px;
     height: 108px;
-    background: #e7c9bb;
-    opacity: 0.4; }
+    background: #7b7b7b;
+    opacity: 0.8; }
   li.video span.duration {
     position: absolute;
     top: 4px;
     left: 1px;
     height: 14px;
+    padding: 0 4px 0 3px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-radius-top-right: 4px;
+    -webkit-border-radius-bottom-right: 4px;
     font-family: "Gondvetica", "Helvetica Neue", "Arial";
-    font-size: 12px;
-    color: white; }
+    font-size: 11px;
+    color: white;
+    background: black;
+    opacity: 0.7; }
   li.video .info {
     position: relative;
     float: left;
@@ -445,12 +454,14 @@ li.video {
       height: 27px;
       overflow: hidden; }
     li.video .info .athletes {
+      overflow: hidden;
+      height: 55px;
       margin-left: 5px; }
       li.video .info .athletes h4 {
         visibility: hidden;
         float: left;
         height: 15px;
-        margin: 3px 0 -3px 0;
+        margin: 4px 0 -3px 0;
         font-size: 15px;
         text-transform: uppercase;
         color: white; }
@@ -600,26 +611,46 @@ a.tag {
     position: relative;
     margin: 0 auto;
     padding: 20px;
-    background: black; }
+    background: black;
+    -moz-box-shadow: 0px 0px 30px #101010;
+    box-shadow: 0px 0px 30px #101010; }
 
 /* watch ------------------------------------------------------------------ */
 #popup div.watch {
-  width: 780px; }
+  padding: 0 0 35px;
+  -moz-border-radius-bottomleft: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -webkit-border-radius-bottom-left: 6px;
+  -webkit-border-radius-bottom-right: 6px; }
   #popup div.watch .player {
-    height: 180px;
-    margin-bottom: 20px;
-    background: #222222; }
-  #popup div.watch .meta li.video {
-    background: transparent;
-    margin-bottom: 0;
-    padding: 0; }
-    #popup div.watch .meta li.video .info {
-      background: transparent; }
-      #popup div.watch .meta li.video .info .athletes {
-        position: relative; }
-        #popup div.watch .meta li.video .info .athletes ul li a {
-          color: white; }
-    #popup div.watch .meta li.video ul.options li.watch {
-      display: none; }
-    #popup div.watch .meta li.video ul.options li.save {
-      background: #00ff66; }
+    margin-bottom: 20px; }
+  #popup div.watch .panel {
+    position: absolute;
+    right: 6px;
+    bottom: 2px;
+    left: 6px;
+    height: 25px;
+    overflow: hidden;
+    border-top: 1px solid #010101; }
+    #popup div.watch .panel h2 a {
+      float: left;
+      width: 87%;
+      font-size: 16px;
+      color: #222222; }
+      #popup div.watch .panel h2 a:hover {
+        color: #555555; }
+    #popup div.watch .panel a.save {
+      display: block;
+      float: right;
+      padding: 3px 6px;
+      font-size: 11px;
+      font-weight: normal;
+      text-shadow: 1px 1px #111111;
+      color: #dddddd;
+      background: #222222;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px; }
+      #popup div.watch .panel a.save:hover {
+        background: #555555; }
+  #popup div.watch .hover h2 {
+    color: pink; }

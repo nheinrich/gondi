@@ -44,3 +44,14 @@ module Gondi
     config.filter_parameters += [:password]
   end
 end
+
+CONTENT_PROVIDERS = [
+  'vimeo',
+  'youtube'
+]
+
+VIDEO_STATES = [
+  'active',
+  'inactive',
+  'review'
+]

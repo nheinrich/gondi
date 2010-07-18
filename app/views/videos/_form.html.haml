@@ -5,7 +5,7 @@
       .status
         // todo: move to helper
         - status = determine_video_status(video)
-        - ['active','inactive','review'].each do |state|
+        - VIDEO_STATES.each do |state|
           - selected = (status == state) ? 'selected' : ''
           - styles = 'status gray '+ state + ' ' + selected
           = bevel_button state, styles
@@ -13,11 +13,12 @@
     %span.hr
     .video
       = fancy_input 'video[title]', 'title', 'Title', video.title
-      = fancy_input 'video[width]', 'width', 'Width', video.width
-      = fancy_input 'video[height]', 'height', 'Height', video.height
+      = fancy_input 'video[width]', 'width', 'Width: 720px', video.width
+      = fancy_input 'video[height]', 'height', 'Height: 480px', video.height
       = fancy_input 'video[duration]', 'duration', 'Duration', video.duration
-      = fancy_input 'video[link]', 'link', 'Link', video.link
-      = fancy_input 'video[source]', 'source', 'Source', video.source
+      = fancy_input 'video[provider]', 'provider', 'Provider', video.provider
+      = fancy_input 'video[provider_id]', 'provider_id', 'Id', video.provider_id
+      = fancy_input 'video[source_url]', 'source', 'Source (url)', video.source_url
       = bevel_button 'image', 'image gray'
       .snapshot
         = f.file_field 'snapshot'

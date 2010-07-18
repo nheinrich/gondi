@@ -8,6 +8,12 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find params[:id]
+    respond_to do |format|
+      format.html {
+        @title = 'Watch'
+        @videos = current_admin ? Video.all : Video.active }
+      format.js
+    end
   end
 
   def new

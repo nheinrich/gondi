@@ -1,9 +1,12 @@
 // head ----------------------------------------------------------------------
 
-- @page_title = 'new video'
 - content_for :on_ready do
-  video.form.init()
-
+  video.list.init()
+  = "popup.watch.video('#{watch_video_path(@video)}')"
+  
+  
 // body ----------------------------------------------------------------------
 
-= render 'form', :video => @video
+%ul.videos
+  - @videos.each do |video|
+    = render 'videos/video_item', :video => video

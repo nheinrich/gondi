@@ -13,5 +13,12 @@ class AthletesController < ApplicationController
     end
   end
 
+  def show
+    @athlete = Athlete.find params[:id]
+    @title = @athlete.name.titleize
+    @videos = @athlete.videos
+    render :action => 'videos/list'
+  end
+
 
 end

@@ -7,10 +7,6 @@ class Video < ActiveRecord::Base
   default_scope :order => 'videos.created_at DESC'
   scope :active, where("status = ?", 'active')
 
-
-
-
-
   def related_athletes=(athlete_names)
     # create a list of all existing athletes
     diff = athletes.map(&:name)

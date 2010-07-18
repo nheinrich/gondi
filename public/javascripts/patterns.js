@@ -38,11 +38,27 @@ var forms = {
   }
 }
 
+// hoverable -----------------------------------------------------------------
+
+var hoverable = {
+  init: function(){
+    $('.hoverable').hover(function() {
+     $(this).addClass('hover');
+    }, function() {
+     $(this).removeClass('hover');
+    })
+  }
+}
+
 // typography ----------------------------------------------------------------
 
 var typography = {
   init:function(){
     this.shadow(['h1 a','.footer a'])
+  },
+  hoverable:function(elements){
+    Cufon.replace(elements, { hover: true})
+    this.show(elements)
   },
   replace:function(elements){
     Cufon.replace(elements)

@@ -53,16 +53,20 @@ li.video
     +left
     :width 144px
     :height 108px
-    :background= !peach
-    :opacity .4
+    :background= !bg_gray_dark
+    :opacity .8
   span.duration
     +absolute
     :top 4px
     :left 1px
     :height 14px
+    :padding 0 4px 0 3px
+    +rounded_right
     +gondvetica
-    :font-size 12px
+    :font-size 11px
     :color= !white
+    :background #000
+    :opacity .7
   .info
     +relative
     +left
@@ -76,12 +80,14 @@ li.video
       :height 27px
       :overflow hidden
     .athletes
+      :overflow hidden
+      :height 55px
       :margin-left 5px
       h4
         +cufon
         +left
         :height 15px
-        :margin 3px 0 -3px 0
+        :margin 4px 0 -3px 0
         :font-size 15px
         :text-transform uppercase
         :color= !white

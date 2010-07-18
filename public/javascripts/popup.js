@@ -53,7 +53,10 @@ var popup = {
 
 popup.watch = {
   show:function(){
-    video.list.fix_fonts()
+    typography.hoverable(['.window h2 a'])
     popup.show()
+  },
+  video:function(url){
+    popup.load(url)
   }
 }

@@ -1,0 +1,15 @@
+<% id = @video.provider_id %>
+<% width = @video.width %>
+<% height = @video.height %>
+
+<object width="<%= width %>" height="<%= height %>">
+  <param name="movie" value="http://www.youtube.com/v/<%= id %>&amp;hl=en_US&amp;fs=1" />
+  <param name="allowFullScreen" value="true" />
+  <param name="allowscriptaccess" value="always" />
+  <embed src="http://www.youtube.com/v/<%= id %>&amp;hl=en_US&amp;fs=1" 
+    type="application/x-shockwave-flash" 
+    allowscriptaccess="always" 
+    allowfullscreen="true" 
+    width="<%= width %>" height="<%= height %>">
+  </embed>
+</object>
