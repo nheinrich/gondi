@@ -8,4 +8,4 @@
 
   .panel.hoverable
     %h2= link_to @video.title, '#'
-    = link_to 'save', save_video_path(@video), :class => 'save', :remote => true
+    = link_to 'save', favorite_path(@video), :class => 'save', :remote => true
