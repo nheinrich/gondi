@@ -52,7 +52,7 @@ namespace :deploy do
     run "cd #{release_path} && bundle install"
     run "cd #{release_path} && RAILS_ENV=#{stage} ./script/rails runner Sass::Plugin.update_stylesheets"
     run "cd #{release_path} && RAILS_ENV=#{stage} rake db:migrate"
-    update_crontab
+    # update_crontab
   end
 
   #########################################################
@@ -67,13 +67,13 @@ namespace :deploy do
   # end
 
   # whenever / crontab udpate
-  desc "Update the crontab file"
-  task :update_crontab, :roles => :db do
-    run <<-EOC
-      cd #{release_path} &&
-      RAILS_ENV=#{stage} whenever --set environment=#{stage} --update-crontab #{application}
-    EOC
-  end
+  # desc "Update the crontab file"
+  # task :update_crontab, :roles => :db do
+  #   run <<-EOC
+  #     cd #{release_path} &&
+  #     RAILS_ENV=#{stage} whenever --set environment=#{stage} --update-crontab #{application}
+  #   EOC
+  # end
 
   # Restart passenger on deploy
   desc "Restarting mod_rails with restart.txt"

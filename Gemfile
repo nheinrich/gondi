@@ -13,7 +13,7 @@ gem 'mini_fb'
 gem 'mysql'
 gem 'paperclip'
 gem 'rmagick'
-gem 'whenever'
+# gem 'whenever'
 
 group :test do
   gem 'capybara'
