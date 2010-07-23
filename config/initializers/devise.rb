@@ -51,11 +51,11 @@ Devise.setup do |config|
   # You can use this to let your user access some features of your application
   # without confirming the account, but blocking it after a certain period
   # (ie 2 days).
-  config.confirm_within = 2.days
+  config.confirm_within = 7.days
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 3.months
+  config.remember_for = 12.months
 
   # ==> Configuration for :validatable
   # Range for password length
@@ -67,7 +67,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again.
-  config.timeout_in = 20.minutes
+  # config.timeout_in = 20.minutes
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.

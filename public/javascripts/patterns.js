@@ -19,6 +19,34 @@ var facebook = {
   }
 }
 
+// fader ---------------------------------------------------------------------
+
+var fader = {
+  init: function(element, hover_color, bg_color){
+    el = $(element)
+    el.data('hover_color', hover_color)
+    el.data('bg_color', (bg_color || el.css('background-color')))
+
+    $(el).hover(
+      function(){
+        if (typeof($(this).data('hover_color')) == 'function'){
+          $(this).stop().animate({ backgroundColor: $(this).data('hover_color')() })
+        } else {
+          $(this).stop().animate({ backgroundColor: $(this).data('hover_color') })
+        }
+      },
+      function(){
+        if (typeof($(this).data('bg_color')) == 'function'){
+          $(this).stop().animate({ backgroundColor: $(this).data('bg_color')() })
+        } else {
+          $(this).stop().animate({ backgroundColor: $(this).data('bg_color') })
+        }
+      }
+    )
+  }
+
+}
+
 // inputs --------------------------------------------------------------------
 
 var forms = {
@@ -160,20 +188,12 @@ video.list = {
     this.hovers()
   },
   hovers:function(){
-    // watch button
-    var watch = $('ul.options li.watch a')
-    watch.data('bg_color', watch.css('background-color'))
-    $('ul.options li.watch a').hover(
-      function(){ $(this).stop().animate({ backgroundColor: "#fff600" }) },
-      function(){ $(this).stop().animate({ backgroundColor: $(this).data('bg_color') }) }
-    )
-    // save button
-    var watch = $('ul.options li.save a')
-    watch.data('bg_color', watch.css('background-color'))
-    $('ul.options li.save a').hover(
-      function(){ $(this).stop().animate({ backgroundColor: "#00ff66" }) },
-      function(){ $(this).stop().animate({ backgroundColor: $(this).hasClass('saved') ? '#00ff66' : '#9a9a9a' }) }
-    )
+    fader.init('ul.options li.edit a', '#fff600')
+    fader.init('ul.options li.delete a', '#ff0000')
+    fader.init('ul.options li.watch a', '#e7c9bb')
+    fader.init('ul.options li.save a', '#00ff66', function(){
+      return $('ul.options li.save a').hasClass('saved') ? '#00ff66' : '#9a9a9a'
+    })
   },
   fix_fonts:function(container){
     var el = container ? container + ' ' : 'li.video '

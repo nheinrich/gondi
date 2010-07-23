@@ -90,6 +90,8 @@ li.video
       :height 27px
       :overflow hidden
       :margin-bottom 0
+      a
+        :color= !white
     .athletes
       :overflow hidden
       :height 54px
@@ -138,26 +140,13 @@ li.video
         :color= !white
         :background #9a9a9a
 
-    li.watch
+    li.watch, li.edit
       :margin-bottom 1px
       a.new
         :background= !yellow
     li.save
       a.saved
         :background= !green
-  a.delete, a.edit
-    +image_text
-    +absolute
-    :right -14px
-    :width 10px
-    :height 10px
-    :opacity .1
-  a.edit
-    :top 4px
-    :background yellow
-  a.delete
-    :top 14px
-    :background red
 
 
 

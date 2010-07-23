@@ -29,7 +29,7 @@ module VideoHelper
       end
     else
       capture_haml do
-        haml_tag :a, 'Yeah!', { :href => pitch_path,
+        haml_tag :a, 'Save', { :href => pitch_path,
           :class => 'save_video save', "data-remote" => "true" }
       end
     end

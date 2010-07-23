@@ -1,8 +1,8 @@
 %li.video{ :id => "video_"+video.id.to_s }
-  = link_to image_tag(video.snapshot.url), watch_video_path(video)
+  = link_to image_tag(video.snapshot.url), watch_video_path(video), :remote => true
   %span.duration= video.duration
   .info
-    %h3= video.title
+    %h3= link_to video.title, watch_video_path(video), :remote => true
     .athletes
       %ul
         %li
@@ -16,10 +16,10 @@
       %li Saves: TBD
       %li= "#{distance_of_time_in_words_to_now video.created_at} ago"
   %ul.options
-    // if you haven't watched the video, mark it new
-    %li.watch= link_to 'Watch', watch_video_path(video), :remote => true
-    %li.save= save_button(video)
-  - if current_admin
-    = link_to 'delete', video_path(video), :class => 'delete', :remote => true, :method => 'delete', :confirm => 'delete this video?'
-    = link_to 'edit', edit_video_path(video), :class => 'edit', :remote => true
-
+    - unless current_admin
+      // todo: if you haven't watched the video, mark it new
+      %li.watch= link_to 'Watch', watch_video_path(video), :remote => true
+      %li.save= save_button(video)
+    - else
+      %li.edit= link_to 'Edit', edit_video_path(video), :class => 'edit', :remote => true
+      %li.delete= link_to 'Delete', video_path(video), :method => 'delete', :class => 'delete', :remote => true
