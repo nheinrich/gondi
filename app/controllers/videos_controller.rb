@@ -21,6 +21,7 @@ class VideosController < ApplicationController
 
   def edit
     @video = Video.find params[:id]
+    @selector = '#video_'+@video.id.to_s
   end
 
   def create

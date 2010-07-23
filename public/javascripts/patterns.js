@@ -100,8 +100,9 @@ video.form = {
     return this.as = el ? el : (this.as ? this.as : this.el + ' .athlete_search input:text')
   },
   hide:function(){
-    $("div.admin div.video_form").slideToggle().remove()
-    $("div.admin span.hr").remove()
+    var form = $("div.video_form")
+    form.siblings('span.hr:first').remove()
+    form.slideToggle().remove()
   },
   init:function(){
     // fixes fonts on the form
