@@ -13,7 +13,7 @@
           %li= link_to name, athlete_path(athlete)
     %ul.meta
       %li Views: TBD
-      %li Saves: TBD
+      %li= "Saves: #{video.favorites.count}"
       %li= "#{distance_of_time_in_words_to_now video.created_at} ago"
   %ul.options
     - unless current_admin

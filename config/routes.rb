@@ -17,7 +17,7 @@ Gondi::Application.routes.draw do |map|
   # favorites
 
   match 'favorite/:id' => 'favorites#toggle', :as => 'favorite'
-  match 'favorites' => 'favorites#index', :as => 'favorites'
+  match 'saves' => 'favorites#index', :as => 'favorites'
 
   # videos
 

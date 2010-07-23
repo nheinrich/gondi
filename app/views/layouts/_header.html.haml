@@ -6,10 +6,14 @@
 
   %ul.nav.gondvetica
     - if current_admin
-      %li= link_to 'new video', new_video_path, :remote => true, :class => 'new_video'
+      %li
+        = link_to 'new video', new_video_path, :remote => true, :class => 'new_video'
+        = " / "
       %li= link_to 'sign out', destroy_admin_session_path, :title => current_admin.email
     - elsif current_user
-      %li= link_to 'my favorites', favorites_path, :class => 'your_saves'
+      %li
+        = link_to 'my saves', favorites_path, :class => 'my_saves'
+        = " / "
       %li= link_to 'sign out', sign_out_path, :title => current_user.email
     - else
       %li

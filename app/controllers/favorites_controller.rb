@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @title = 'My Favorites'
+    @title = 'My Saves'
     @videos = current_user.videos
 
     render :action => 'videos/list'

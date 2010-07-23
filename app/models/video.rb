@@ -27,5 +27,4 @@ class Video < ActiveRecord::Base
     # delete all athletes that are no longer related
     athletes.delete(Athlete.find_all_by_name(diff))
   end
-
 end

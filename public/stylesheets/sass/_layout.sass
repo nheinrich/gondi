@@ -37,14 +37,8 @@ body
         :text-decoration underline
       &.facebook
         :margin-top -4px
-      &.new_video // admin
-        :padding 2px 4px
-        +rounded
-        :background= !green
-        &:hover
-          :color= !white
-          :text-decoration none
-
+      &.my_saves, &.new_video
+        :padding-right 4px
   .search
     +absolute
     :top 40px
