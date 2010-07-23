@@ -7,5 +7,5 @@
     = render 'videos/embed/' + p
 
   .panel.hoverable
-    %h2= link_to @video.title, '#'
-    = link_to 'save', favorite_path(@video), :class => 'save', :remote => true
+    %h2= @video.title
+    = save_button(@video)

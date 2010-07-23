@@ -69,12 +69,12 @@ var forms = {
 // hoverable -----------------------------------------------------------------
 
 var hoverable = {
-  init: function(){
-    $('.hoverable').hover(function() {
-     $(this).addClass('hover');
-    }, function() {
-     $(this).removeClass('hover');
-    })
+  init: function(container){
+    container = container || ''
+    $(container + ' .hoverable').hover(
+      function() { $(this).addClass('hover'); },
+      function() { $(this).removeClass('hover'); }
+    )
   }
 }
 
@@ -118,6 +118,16 @@ var typography = {
 
 var video = {}
 
+// video favorite ----------
+
+video.favorite = function(selector, text){
+  var btn = $(selector)
+  btn.find('span.text').fadeOut('fast',function(){
+    $(this).html(text)
+    typography.hoverable_with_shadow([selector + ' span'])
+    $(this).parents('a:first').removeClass('save saved').addClass(text.toLowerCase())
+  }).fadeIn('fast')
+}
 // video form ----------
 
 video.form = {
@@ -200,18 +210,21 @@ video.list = {
     typography.shadow([el + 'h3'], '#555')
     typography.shadow([el + 'ul.options a'])
     typography.hoverable([el + 'h4', el + '.athletes a'])
-  },
-  favorite:function(id, text){
-    var btn = $(id)
-    var span = btn.find('span.text')
-    span.fadeOut('fast',function(){
-      $(this).html(text)
-      typography.hoverable_with_shadow([id + ' span'])
-      $(this).parents('a:first').removeClass('save saved').addClass(text.toLowerCase())
-    }).fadeIn('fast')
   }
 }
 
+// video.popup ----------
+
+video.popup = {
+  show:function(){
+    typography.hoverable(['.window h2'])
+    typography.hoverable_with_shadow(['a.save_video'])
+    popup.show()
+  },
+  video:function(url){
+    popup.load(url)
+  }
+}
 // utility -------------------------------------------------------------------
 
 var u = {

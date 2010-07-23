@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
       @text = 'saved'
     end
     # prepare data to pass to js
-    @id = '#video_' + @video.id.to_s
+    @id = '.video_' + @video.id.to_s
   end
 
 end

@@ -49,14 +49,4 @@ var popup = {
   }
 }
 
-// watch (popup) -------------------------------------------------------------
 
-popup.watch = {
-  show:function(){
-    typography.hoverable(['.window h2 a'])
-    popup.show()
-  },
-  video:function(url){
-    popup.load(url)
-  }
-}

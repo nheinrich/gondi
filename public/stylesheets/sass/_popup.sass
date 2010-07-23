@@ -32,28 +32,24 @@
     :height 25px
     :overflow hidden
     :border-top 1px solid #010101
-    h2 a
+    h2
       +left
       :width 87%
       :font-size 16px
       :color #222
-      &:hover
-        :color #555
-    a.save
+    a.save_video
       +block
       +right
-      :padding 3px 6px
+      :padding 5px 6px 3px
       :font-size 11px
       :font-weight normal
       +shadowed(#111)
+      :text-transform uppercase
       :color #ddd
-      :background #222
+      :background #9a9a9a
       +rounded
-      &:hover
-        :background #555
-  .hover
-    h2
-      :color pink
+      &.saved, &:hover
+        :background= !green
 
 
 

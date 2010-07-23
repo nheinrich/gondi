@@ -20,10 +20,9 @@ module VideoHelper
   def save_button(video)
     if user = current_user
       text = user.has_favorited(video) ? 'Saved' : 'Save'
-      style = 'save_video ' + text.parameterize('_')
-      id = 'video_' + video.id.to_s
+      style = 'save_video ' + text.parameterize('_') + ' video_' + video.id.to_s
       capture_haml do
-        haml_tag :a, {:href => favorite_path(video), :id => id, :class => style, "data-remote" => "true" } do
+        haml_tag :a, {:href => favorite_path(video), :class => style, "data-remote" => "true" } do
           haml_tag :span, text, {:class => 'text'}
         end
       end
