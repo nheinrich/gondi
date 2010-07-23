@@ -37,7 +37,7 @@ module LayoutHelper
   # outputs the corresponding flash message if set
   def flash_messages
     capture_haml do
-      %w(notice warning error).each do |msg|
+      %w(notice alert).each do |msg|
         haml_tag :div, flash[msg.to_sym], :class => msg unless flash[msg.to_sym].blank?
       end
     end
