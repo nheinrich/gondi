@@ -179,7 +179,7 @@ video.list = {
     var el = container ? container + ' ' : 'li.video '
     typography.shadow([el + 'h3'], '#555')
     typography.shadow([el + 'ul.options a'])
-    typography.replace([el + 'h4', el + '.athletes a'])
+    typography.hoverable([el + 'h4', el + '.athletes a'])
   },
   favorite:function(id, text){
     var btn = $(id)
