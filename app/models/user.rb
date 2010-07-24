@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :remember_me
 
   has_many :favorites
-  has_many :videos, :through => :favorites
+  has_many :videos_favorited, :through => :favorites, :source => :video
+
+  has_many :views
+  has_many :videos_viewed, :through => :views, :source => :video
 
   def self.facebook_login(access_token)
     # retrieve user info from currently logged in user
@@ -31,5 +34,11 @@ class User < ActiveRecord::Base
   def has_favorited(video)
     favorites.map(&:video_id).include? video.id
   end
+
+  def track_view(video)
+    view = views.find_or_create_by_video_id(video.id)
+    view.update_attribute('total', view.total ? view.total += 1 : 1)
+  end
+
 
 end

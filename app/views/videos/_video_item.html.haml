@@ -21,7 +21,7 @@
           = link_to 'source', video.source_url
           = " / "
       %li
-        %span= "watched: TBD times"
+        %span= "watched: #{video.total_views} times"
         = " / "
       %li
         %span= "saves: #{video.favorites.count}"

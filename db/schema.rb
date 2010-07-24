@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100724002401) do
+ActiveRecord::Schema.define(:version => 20100724013813) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -94,6 +94,13 @@ ActiveRecord::Schema.define(:version => 20100724002401) do
     t.datetime "snapshot_updated_at"
     t.string   "provider_id"
     t.datetime "published_at"
+  end
+
+  create_table "views", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.integer  "total"
+    t.datetime "created_at"
   end
 
 end

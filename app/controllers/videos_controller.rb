@@ -7,6 +7,8 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find params[:id]
+    current_user.track_view(@video) if current_user
+
     respond_to do |format|
       format.html {
         @title = 'Watch'
