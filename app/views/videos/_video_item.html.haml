@@ -13,6 +13,10 @@
           %li= link_to name, athlete_path(athlete)
     %ul.meta
       - if video.source_url
+        - if current_admin
+          %li
+            %span= video.status
+            = " / "
         %li
           = link_to 'source', video.source_url
           = " / "
@@ -23,7 +27,8 @@
         %span= "saves: #{video.favorites.count}"
         = " / "
       %li
-        %span= "posted #{distance_of_time_in_words_to_now video.created_at} ago"
+        - past_or_future = video.published_at > Time.now ? 'from now' : 'ago'
+        %span= "posted #{distance_of_time_in_words_to_now video.published_at rescue nil} #{past_or_future}"
   %ul.options
     - unless current_admin
       // todo: if you haven't watched the video, mark it new

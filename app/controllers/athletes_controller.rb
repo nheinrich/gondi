@@ -16,7 +16,7 @@ class AthletesController < ApplicationController
   def show
     @athlete = Athlete.find params[:id]
     @title = @athlete.name.titleize
-    @videos = @athlete.videos
+    @videos = current_admin ? @athlete.videos.all : @athlete.videos.active
     render :action => 'videos/list'
   end
 

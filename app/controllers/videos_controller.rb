@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   respond_to :html, :js
 
   def index
-    @videos = Video.all
+    @videos = Video.active
   end
 
   def show

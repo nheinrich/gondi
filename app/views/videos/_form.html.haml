@@ -10,6 +10,8 @@
           - styles = 'status gray '+ state + ' ' + selected
           = bevel_button state, styles
         = hidden_field_tag 'video[status]', status
+      .published_on
+        =f.datetime_select 'published_at', :order => [:month, :day, :year]
     %span.hr
     .video
       = fancy_input 'video[title]', 'title', 'Title', video.title

@@ -7,8 +7,8 @@ class Video < ActiveRecord::Base
   has_many :favorites
   has_many :users, :through => :favorites
 
-  default_scope :order => 'videos.created_at DESC'
-  scope :active, where("status = ?", 'active')
+  default_scope :order => 'videos.published_at DESC'
+  scope :active, where("status = ? AND published_at <= ?", 'active', Time.now)
 
   def related_athletes=(athlete_names)
     # create a list of all existing athletes
@@ -27,4 +27,5 @@ class Video < ActiveRecord::Base
     # delete all athletes that are no longer related
     athletes.delete(Athlete.find_all_by_name(diff))
   end
+
 end
