@@ -1,4 +1,4 @@
-%li.video{ :id => "video_"+video.id.to_s }
+%li.video{ :class => "video_"+video.id.to_s }
   = link_to image_tag(video.snapshot.url), watch_video_path(video), :remote => true
   %span.duration= video.duration
   .info
@@ -11,6 +11,7 @@
           - name = athlete.name
           - name += ', ' unless athlete == video.athletes.last
           %li= link_to name, athlete_path(athlete)
+    // todo: there has to be a far better way to handle this
     %ul.meta
       - if video.source_url
         - if current_admin
@@ -21,8 +22,10 @@
           = link_to 'source', video.source_url
           = " / "
       %li
-        %span= "watched: #{video.total_views} times"
-        = " / "
+        %span
+          watched: 
+          %span.total_views= video.total_views
+          times /
       %li
         %span= "saves: #{video.favorites.count}"
         = " / "

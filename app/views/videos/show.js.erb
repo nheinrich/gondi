@@ -1,3 +1,4 @@
 popup.render("<%= escape_javascript(render 'videos/video', :video => @video) %>")
 
+video.list.increment_views("<%= escape_javascript(@selector) %>")
 video.popup.show()

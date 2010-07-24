@@ -7,6 +7,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find params[:id]
+    @selector = '.video_'+@video.id.to_s
     current_user.track_view(@video) if current_user
 
     respond_to do |format|
@@ -23,12 +24,12 @@ class VideosController < ApplicationController
 
   def edit
     @video = Video.find params[:id]
-    @selector = '#video_'+@video.id.to_s
+    @selector = '.video_'+@video.id.to_s
   end
 
   def create
     if @video = Video.create(params[:video])
-      @selector = '#video_'+@video.id.to_s
+      @selector = '.video_'+@video.id.to_s
       respond_with(@video, :location => root_url, :notice => 'Video successfully created')
     else
       respond_with(@video, :location => root_url)
@@ -47,7 +48,7 @@ class VideosController < ApplicationController
 
   def destroy
     @video = Video.find params[:id]
-    @video_id = '#video_'+ @video.id.to_s
+    @video_id = '.video_'+ @video.id.to_s
     @video.destroy
   end
 

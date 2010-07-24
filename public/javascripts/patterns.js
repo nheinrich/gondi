@@ -210,6 +210,11 @@ video.list = {
     typography.shadow([el + 'h3 a'], '#555')
     typography.shadow([el + 'ul.options a'])
     typography.hoverable([el + 'h4', el + '.athletes a'])
+  },
+  increment_views:function(selector){
+    el = $(selector + ' span.total_views')
+    el.hide()
+    el.text(parseFloat(el.text()) + 1).fadeIn('fast')
   }
 }
 
@@ -220,9 +225,6 @@ video.popup = {
     typography.hoverable(['.window h2'])
     typography.hoverable_with_shadow(['a.save_video'])
     popup.show()
-  },
-  video:function(url){
-    popup.load(url)
   }
 }
 // utility -------------------------------------------------------------------
