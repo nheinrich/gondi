@@ -30,7 +30,7 @@
         %span= "saves: #{video.favorites.count}"
         = " / "
       %li
-        - past_or_future = video.published_at > Time.now ? 'from now' : 'ago'
+        - past_or_future = video.published_at > Time.now ? 'from now' : 'ago' rescue nil
         %span= "posted #{distance_of_time_in_words_to_now video.published_at rescue nil} #{past_or_future}"
   %ul.options
     - unless current_admin
