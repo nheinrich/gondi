@@ -200,14 +200,14 @@ video.list = {
   hovers:function(){
     fader.init('ul.options li.edit a', '#fff600')
     fader.init('ul.options li.delete a', '#ff0000')
-    fader.init('ul.options li.watch a', '#e7c9bb')
+    fader.init('ul.options li.watch a', '#4c4c4c')
     fader.init('ul.options li.save a', '#00ff66', function(){
       return $('ul.options li.save a').hasClass('saved') ? '#00ff66' : '#9a9a9a'
     })
   },
   fix_fonts:function(container){
     var el = container ? container + ' ' : 'li.video '
-    typography.shadow([el + 'h3'], '#555')
+    typography.shadow([el + 'h3 a'], '#555')
     typography.shadow([el + 'ul.options a'])
     typography.hoverable([el + 'h4', el + '.athletes a'])
   }

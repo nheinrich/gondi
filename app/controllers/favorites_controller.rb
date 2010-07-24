@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   def index
     @title = 'My Saves'
-    @videos = current_user.videos
+    @videos = current_user.videos.active
 
     render :action => 'videos/list'
   end
