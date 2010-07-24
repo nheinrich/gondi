@@ -87,14 +87,14 @@ li.video
     :padding 0 6px
     :border-left 1px solid #888
     h3
-      :height 27px
+      :height 24px
       :overflow hidden
       :margin-bottom 0
       a
         :color= !white
     .athletes
       :overflow hidden
-      :height 54px
+      :height 64px
       :margin-left 3px
       ul
         +left
@@ -106,7 +106,7 @@ li.video
             +block
             +cufon
             +gondvetica
-            :font-size 14px
+            :font-size 13px
             :font-style italic
             :color= !txt_gray_on_dark
             &:hover
@@ -118,9 +118,14 @@ li.video
       +horizontal
       +cleft
       li
-        :margin-right 10px
+        :margin-right 8px
         :font-size 10px
-        :color= !txt_gray_darkest
+        :color= !txt_gray_dark
+        a
+          :text-decoration underline
+        span, a
+          :padding-right 5px
+          :color= !txt_gray_darkest
   ul.options
     +right
     :width 144px

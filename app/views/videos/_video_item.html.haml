@@ -12,9 +12,18 @@
           - name += ', ' unless athlete == video.athletes.last
           %li= link_to name, athlete_path(athlete)
     %ul.meta
-      %li Views: TBD
-      %li= "Saves: #{video.favorites.count}"
-      %li= "#{distance_of_time_in_words_to_now video.created_at} ago"
+      - if video.source_url
+        %li
+          = link_to 'source', video.source_url
+          = " / "
+      %li
+        %span views: TBD
+        = " / "
+      %li
+        %span= "saves: #{video.favorites.count}"
+        = " / "
+      %li
+        %span= "posted #{distance_of_time_in_words_to_now video.created_at} ago"
   %ul.options
     - unless current_admin
       // todo: if you haven't watched the video, mark it new
