@@ -6,7 +6,7 @@
     = render :partial => 'layouts/meta'
     = render :partial => 'layouts/stylesheets'
     = csrf_meta_tag
-
+    
   %body{ :class => yield(:page_style) }
     = render :partial => 'layouts/popup'
     .container

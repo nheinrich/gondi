@@ -3,6 +3,11 @@
 = javascript_include_tag "/fonts/cufon","/fonts/gondvetica.font.js"
 = javascript_include_tag "rails","patterns","popup","application"
 
+// google analytics
+- if RAILS_ENV == 'production'
+  %script{ :type => 'text/javascript', :charset => 'utf-8' }
+    gat('UA-16211392-3')
+
 // js from views
 %script{ :type => 'text/javascript', :charset => 'utf-8' }
   $(document).ready(function() {
