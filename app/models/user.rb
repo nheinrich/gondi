@@ -3,15 +3,15 @@ class User < ActiveRecord::Base
   # include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable
 
   # setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :remember_me
 
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
   has_many :videos_favorited, :through => :favorites, :source => :video
 
-  has_many :views
+  has_many :views, :dependent => :destroy
   has_many :videos_viewed, :through => :views, :source => :video
 
   def self.facebook_login(access_token)
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     response_hash = MiniFB.get(access_token, 'me')
     # see if the user has an account
     user = User.find_by_fb_user_id response_hash["id"]
-    user = User.find_by_email response_hash["email"] if user.nil?
+    user = User.find_by_email response_hash["email"] if user.nil? && response_hash["email"]
     user = User.new if user.nil?
 
     # update stats

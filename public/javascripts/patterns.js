@@ -140,10 +140,11 @@ video.favorite = function(selector, text){
   var btn = $(selector)
   btn.find('span.text').fadeOut('fast',function(){
     $(this).html(text)
-    typography.hoverable_with_shadow([selector + ' span'])
+    typography.hoverable_with_shadow([selector + ' span.text'])
     $(this).parents('a:first').removeClass('save saved').addClass(text.toLowerCase())
   }).fadeIn('fast')
 }
+
 // video form ----------
 
 video.form = {

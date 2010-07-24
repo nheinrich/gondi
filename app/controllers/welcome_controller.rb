@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
     @title = 'Videos'
     @videos = current_admin ? Video.all : Video.active
 
-    render :action => 'videos/list'
+    render :template => 'videos/list'
   end
 
 end

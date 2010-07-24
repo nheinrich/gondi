@@ -8,7 +8,7 @@ class FacebookController < ApplicationController
     unless access_token.empty?
       user = User.facebook_login(access_token)
       # this seems nasty, need to look into ways of forcing current_user
-      session[:fb_user_id] = user.id
+      session[:fb_user_id] = user.fb_user_id
     else
       flash[:error] = "We were not able to log you in, please try again."
     end

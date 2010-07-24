@@ -4,10 +4,10 @@ class Video < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true
 
   has_and_belongs_to_many :athletes
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
   has_many :user_favorites, :through => :favorites, :source => :user
 
-  has_many :views
+  has_many :views, :dependent => :destroy
   has_many :user_views, :through => :views, :source => :user
 
   default_scope :order => 'videos.published_at DESC'
