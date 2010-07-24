@@ -51,7 +51,7 @@ module ApplicationHelper
 
   def facebook_auth_path
     # note: gets all permissions
-    MiniFB.oauth_url(FB_APP_ID, HOST + 'facebook/sign_in')
+    MiniFB.oauth_url(FB_APP_ID, FB_HOST + 'facebook/sign_in')
   end
 
   # minor --------------------------------------------------------------------

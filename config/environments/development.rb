@@ -16,5 +16,12 @@ Gondi::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+
+  # Facebook
 end
 
+
+FB_API_KEY = '009777b3f6638ad9375435752839d943'
+FB_SECRET = 'd1403d03e5163bd731e3e23a90bb9c77'
+FB_APP_ID = '136218683069813'
+FB_HOST = 'http://g.tv:3000/'

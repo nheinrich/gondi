@@ -3,7 +3,7 @@
 class FacebookController < ApplicationController
 
   def sign_in
-    access_token_hash = MiniFB.oauth_access_token(FB_APP_ID, HOST + 'facebook/sign_in', FB_SECRET, params[:code])
+    access_token_hash = MiniFB.oauth_access_token(FB_APP_ID, FB_HOST + 'facebook/sign_in', FB_SECRET, params[:code])
     access_token = access_token_hash["access_token"]
     unless access_token.empty?
       user = User.facebook_login(access_token)
