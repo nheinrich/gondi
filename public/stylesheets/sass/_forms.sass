@@ -24,7 +24,7 @@ div.fancy_input
   span.tail
     :display inline-block
     +relative
-    :right -10px
+    :right -9px
     :height 31px
     :width 10px
     :background url(/images/fancy_input.default.png) top right no-repeat
@@ -56,17 +56,24 @@ div.video_form
     h2
       +left
       +inline-block
-      :width 200px
+      :width 100px
     div.published_on
       +right
-      :margin-right 32px
-      :padding-top 9px
+      :width 431px
+      :margin-right -8px
       select
-        :height 20px
+        :height 34px
+        :padding 8px 8px 0 0
+        :font-size 14px
+        :opacity .5
     a.bevel_button.status
       +right
       +relative
       :left -5px
+      span.text
+        :width 51px
+        :padding-left 24px
+
     .status
       +right
       a
@@ -75,29 +82,49 @@ div.video_form
           +block
   div.video
     :height 80px
-    :margin-bottom 10px
+    :margin-bottom 3px
     .fancy_input
       +left
       :margin 0 20px 10px 0
     .title input
-      :width 381px
+      :width 382px
     .width input,
     .height input,
     .duration input
       :width 75px
     .duration
       :margin-right 0
-    .provider input
+    .data
+      +left
       +cleft
-      :width 178px
-    .provider_id input
-      :width 177px
+      :width 408px
+      :height 32px
+      a.embed
+        +left
+        :padding-right 10px
+        :margin-right 7px
+        span.text
+          :width 43px
+          :padding-left 12px
+        &.active
+          +relative
+          :top -5px
+          :left -5px
+          &:hover
+            :z-index 20
+      .embed
+        input
+          :width 300px
+      .provider input
+        :width 96px
+      .provider_id input
+        :width 177px
     .source input
       :width 176px
     a.image
       +left
       span.text
-        :width 50px
+        :width 49px
         :padding-left 24px
     .snapshot
       +absolute
@@ -109,7 +136,8 @@ div.video_form
       :cursor pointer
       input
         +relative
-        :left -323px // tested in mozilla
+        :left -228px // tested in mozilla
+        :top 5px
         :opacity 0
         :cursor pointer
 
@@ -117,11 +145,12 @@ div.video_form
     h2
       +left
       :width 140px
-      :margin-bottom 2px
+      :margin-bottom 10px
     div.search_or_add
       +left
       :margin-top 3px
     ul
+      +cleft
       :margin-bottom 8px
 
 // hack to properly position image upload button in safari

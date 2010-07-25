@@ -188,6 +188,20 @@ video.form = {
       $(next).addClass('selected')
       $(el + "input[type='hidden']").val($.trim($(next).text()))
     })
+    // embed toggle
+    $(this.el + ' a.embed').live('click',function(){
+      var provider = $(video.form.element() + ' .data_provider')
+      var embed = $(video.form.element() + ' .data_embed')
+      if (embed.css('display') == 'none') {
+        provider.fadeOut('fast',function(){
+          embed.fadeIn('fast')
+        })
+      } else {
+        embed.fadeOut('fast',function(){
+          provider.fadeIn('fast')
+        })
+      }
+    })
     // adds input hints, submit interaction
     forms.init()
     // input / autocomplete

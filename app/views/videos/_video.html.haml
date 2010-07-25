@@ -1,11 +1,14 @@
 .window.watch{:style => "width:#{@video.width}px; height:#{@video.height}px"}
   .player
-    - case(@video.provider.parameterize('_'))
-    - when 'vimeo' then p = 'vimeo'
-    - when 'youtube' then p = 'youtube'
+    - if @video.provider.present?
+      - case(@video.provider.parameterize('_'))
+      - when 'vimeo' then p = 'vimeo'
+      - when 'youtube' then p = 'youtube'  
+    - else
+      - p = 'code'
 
     = render 'videos/embed/' + p
-
+    
   .panel.hoverable
     %h2= @video.title
     = save_button(@video)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100725020721) do
+ActiveRecord::Schema.define(:version => 20100725211921) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20100725020721) do
     t.datetime "snapshot_updated_at"
     t.string   "provider_id"
     t.datetime "published_at"
+    t.text     "embed"
   end
 
   create_table "views", :force => true do |t|

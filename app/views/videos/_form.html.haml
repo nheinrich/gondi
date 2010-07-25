@@ -18,17 +18,21 @@
       = fancy_input 'video[width]', 'width', '720px', video.width
       = fancy_input 'video[height]', 'height', '480px', video.height
       = fancy_input 'video[duration]', 'duration', 'Duration', video.duration
-      = fancy_input 'video[provider]', 'provider', 'Provider', video.provider
-      = fancy_input 'video[provider_id]', 'provider_id', 'Id', video.provider_id
+      .data
+        = bevel_button 'embed', 'embed gray'
+        .data_provider{:class => "#{'hide' if video.provider.blank? && !video.embed.blank? }" }
+          = fancy_input 'video[provider]', 'provider', 'Provider', video.provider
+          = fancy_input 'video[provider_id]', 'provider_id', 'Id', video.provider_id
+        .data_embed{:class => "#{'hide' if video.embed.blank? }" }
+          = fancy_input 'video[embed]', 'embed', 'Embed', video.embed
       = fancy_input 'video[source_url]', 'source', 'Source (url)', video.source_url
       = bevel_button 'image', 'image gray'
       .snapshot
         = f.file_field 'snapshot'
-
+    %span.hr
     .athletes
       %h2 Starring
       = fancy_input 'riders', 'round icon athlete_search', 'Search / Add'
-      %span.hr
       %ul.tag_list
         - video.athletes.each do |athlete|
           = render 'athletes/tag_link', :athlete => athlete, :style => 'icon delete'
