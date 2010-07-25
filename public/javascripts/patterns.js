@@ -247,6 +247,7 @@ video.list = {
   },
   save_button:function(){
     $('ul.options li.save a').live('click',function(e){
+      // style changes here due to dynamic nature of hover out affedt
       var link = $(this)
       var span = link.find('span.text')
       var text = span.text() == 'Save' ? 'Saved' : 'Save'
@@ -270,6 +271,9 @@ video.list = {
 // video.popup ----------
 
 video.popup = {
+  load:function(url){
+    popup.load(url)
+  },
   show:function(){
     typography.hoverable(['.window h2'])
     typography.hoverable_with_shadow(['a.save_video'])

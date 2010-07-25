@@ -12,7 +12,7 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       format.html {
-        @title = 'Watch'
+        @title = 'Videos'
         @videos = current_admin ? Video.all : Video.active }
       format.js
     end

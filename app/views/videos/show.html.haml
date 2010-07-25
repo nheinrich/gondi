@@ -2,9 +2,9 @@
 
 - content_for :on_ready do
   video.list.init()
-  = "popup.watch.video('#{watch_video_path(@video)}')"
-  
-  
+  = "video.popup.load('#{watch_video_path(@video)}')"
+
+
 // body ----------------------------------------------------------------------
 
 %ul.videos
