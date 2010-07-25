@@ -57,14 +57,14 @@ var fader = {
     $(el).hover(
       function(){
         if (typeof($(this).data('hover_color')) == 'function'){
-          $(this).stop().animate({ backgroundColor: $(this).data('hover_color')() })
+          $(this).stop().animate({ backgroundColor: $(this).data('hover_color').call(this) })
         } else {
           $(this).stop().animate({ backgroundColor: $(this).data('hover_color') })
         }
       },
       function(){
         if (typeof($(this).data('bg_color')) == 'function'){
-          $(this).stop().animate({ backgroundColor: $(this).data('bg_color')() })
+          $(this).stop().animate({ backgroundColor: $(this).data('bg_color').call(this) })
         } else {
           $(this).stop().animate({ backgroundColor: $(this).data('bg_color') })
         }
@@ -161,17 +161,6 @@ var typography = {
 
 var video = {}
 
-// video favorite ----------
-
-video.favorite = function(selector, text){
-  var btn = $(selector)
-  btn.find('span.text').fadeOut('fast',function(){
-    $(this).html(text)
-    typography.hoverable_with_shadow([selector + ' span.text'])
-    $(this).parents('a:first').removeClass('save saved').addClass(text.toLowerCase())
-  }).fadeIn('fast')
-}
-
 // video form ----------
 
 video.form = {
@@ -240,20 +229,36 @@ video.list = {
   init:function(){
     this.fix_fonts()
     this.hovers()
-  },
-  hovers:function(){
-    fader.init('ul.options li.edit a', '#fff600')
-    fader.init('ul.options li.delete a', '#ff0000')
-    fader.init('ul.options li.watch a', '#4c4c4c')
-    fader.init('ul.options li.save a', '#00ff66', function(){
-      return $('ul.options li.save a').hasClass('saved') ? '#00ff66' : '#9a9a9a'
-    })
+    this.save_button()
   },
   fix_fonts:function(container){
     var el = container ? container + ' ' : 'li.video '
     typography.shadow([el + 'h3 a'], '#555')
     typography.shadow([el + 'ul.options a'])
     typography.hoverable([el + 'h4', el + '.athletes a'])
+  },
+  hovers:function(){
+    fader.init('ul.options li.edit a', '#fff600')
+    fader.init('ul.options li.delete a', '#ff0000')
+    fader.init('ul.options li.watch a', '#4c4c4c')
+    fader.init('ul.options li.save a', '#00ff66', (function(){
+      return $(this).hasClass('saved') ? '#00ff66' : '#9a9a9a'
+    }))
+  },
+  save_button:function(){
+    $('ul.options li.save a').live('click',function(e){
+      var link = $(this)
+      var span = link.find('span.text')
+      var text = span.text() == 'Save' ? 'Saved' : 'Save'
+      link.removeClass('save saved').addClass(text.toLowerCase())
+      span.fadeOut('fast', function(){
+        var $this = $(this)
+        var style = "." + $this.parents('li.video:first').attr('class').split(' ')[1]
+        $this.text(text)
+        typography.hoverable_with_shadow([style + ' a.save_video span.text'])
+        $this.fadeIn()
+      })
+    })
   },
   increment_views:function(selector){
     el = $(selector + ' span.total_views')

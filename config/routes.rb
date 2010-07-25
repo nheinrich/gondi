@@ -11,27 +11,18 @@ Gondi::Application.routes.draw do |map|
   # match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
 
   # athletes
-
   resources :athletes
 
   # favorites
-
   match 'favorite/:id' => 'favorites#toggle', :as => 'favorite'
   match 'saves' => 'favorites#index', :as => 'favorites'
 
   # videos
-
   match 'watch/:id' => 'videos#show', :as => 'watch_video'
   match 'videos/add_athlete' => 'videos#add_athlete'
-
   resources :videos
 
-  # static / marketing
-
-  match 'pitch' => 'common#pitch', :as => 'pitch'
-
   # welcome
-
   root :to => 'welcome#index'
   match '/', :to => 'welcome#index', :as => 'admin_root'
 

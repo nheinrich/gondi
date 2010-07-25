@@ -8,17 +8,21 @@ class FavoritesController < ApplicationController
   end
 
   def toggle
-    user = User.find current_user.id
-    @video = Video.find params[:id]
-    if user.has_favorited(@video)
-      user.videos_favorited.delete(@video)
-      @text = 'save'
+    if user_signed_in?
+      user = User.find current_user.id
+      @video = Video.find params[:id]
+      if user.has_favorited(@video)
+        user.videos_favorited.delete(@video)
+        @text = 'save'
+      else
+        user.videos_favorited << @video
+        @text = 'saved'
+      end
+      # prepare data to pass to js
+      @selector = '.video_' + @video.id.to_s
     else
-      user.videos_favorited << @video
-      @text = 'saved'
+      redirect_to new_user_session_url
     end
-    # prepare data to pass to js
-    @selector = '.video_' + @video.id.to_s
   end
 
 end
