@@ -47,13 +47,6 @@ module ApplicationHelper
     end
   end
 
-  # facebook -------------------------------------------------------------------
-
-  def facebook_auth_path
-    # note: gets all permissions
-    MiniFB.oauth_url(FB_APP_ID, FB_HOST + 'facebook/sign_in')
-  end
-
   # minor --------------------------------------------------------------------
 
   def videos_total(num)
@@ -68,8 +61,6 @@ module ApplicationHelper
 
   def save_or_submit
     controller.action_name == 'new' ? 'submit' : 'save'
-
-
   end
 
 end

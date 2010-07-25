@@ -1,0 +1,10 @@
+development:
+  application_id: "136218683069813"
+  api_key: "009777b3f6638ad9375435752839d943"
+  application_secret: "d1403d03e5163bd731e3e23a90bb9c77"
+
+production:
+  application_id: "100351536684820"
+  api_key: "51179d87794d58514950e21d267ba0f7"
+  application_secret: "a5806582a78e7b6bd93d0b0dad313e83"
+

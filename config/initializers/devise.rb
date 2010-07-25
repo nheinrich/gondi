@@ -44,6 +44,19 @@ Devise.setup do |config|
   # Setup a pepper to generate the encrypted password.
   config.pepper = "c2dee0ec5d77fee4fa6dc90929943d6ee9dfe07d4090bd6205cde16c763a3e24aed06b19cadc1a9439f11395b072c0205d1e6d3823432e368a5be072247b0480"
 
+  # ==> Configuration for :facebook_open_graph_authenticatable
+  # Overrides the default column name for where to store the user's facebook user id
+  # config.facebook_uid_field = "facebook_uid"
+
+  # Auto creates accounts for new users. Default is true
+  #config.facebook_auto_create_account = true
+
+  # Runs validation when auto creating users on facebook connect. Default is false
+  #config.run_validations_when_creating_facebook_user = false
+
+  # Skip confirmation loop on facebook connection users. Default is true
+  #config,skip_confimation_for_facebook_users = true
+
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
   # he will be able to access your application without confirming. Default is nil.
@@ -51,7 +64,7 @@ Devise.setup do |config|
   # You can use this to let your user access some features of your application
   # without confirming the account, but blocking it after a certain period
   # (ie 2 days).
-  config.confirm_within = 7.days
+  # config.confirm_within = 7.days
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.

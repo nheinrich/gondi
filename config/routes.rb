@@ -6,9 +6,9 @@ Gondi::Application.routes.draw do |map|
   # facebook
 
   # called after login
-  match 'facebook/sign_in' => 'facebook#sign_in', :as => 'fb_connect'
+  # match 'facebook/sign_in' => 'facebook#sign_in', :as => 'fb_connect'
   # checks fb status before sign out
-  match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
+  # match 'facebook/sign_out' => 'facebook#sign_out', :as => 'sign_out'
 
   # athletes
 

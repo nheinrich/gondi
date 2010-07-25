@@ -14,12 +14,12 @@
       %li
         = link_to 'my saves', favorites_path, :class => 'my_saves'
         = " / "
-      %li= link_to 'sign out', sign_out_path, :title => current_user.email
+      %li= link_to 'sign out', destroy_user_session_path, :title => current_user.email, :class => 'sign_out'
     - else
       %li
         = link_to 'sign in', new_user_session_path
         &nbsp;/
-      %li= link_to 'Connect with Facebook', facebook_auth_path, :class => 'facebook'
+      %li= link_to 'Connect with Facebook', '#', :class => 'facebook'
 
   .search
     = fancy_input 'Search', 'round icon'

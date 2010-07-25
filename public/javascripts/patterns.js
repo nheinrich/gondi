@@ -4,18 +4,45 @@
 
 var facebook = {
   init:function(){
-    // init facebook
-    // would be nice if the app_id was somehow grabbed from the facebook.yml
-    FB.init("136218683069813", "/xd_receiver.htm")
-    // setup links
-    $('a.fb_connect').click(function(){
-      var url = $(this).attr('href')
-      FB.Connect.requireSession(function(){ facebook.sign_in(url) })
-      return false
+    // sign in
+    FB.Event.subscribe('auth.login', function(response) {
+      u.load()  // redirect when the user gets connected to facebook
+    });
+    // sign out
+    $("a.sign_out").click(function(e) {
+        var url = $(this).attr("href");
+        FB.getLoginStatus(function(response) {
+          if (response.session) { // user is connected to Facebook
+            e.preventDefault();
+            FB.logout(function() { u.load(url) });
+          }
+        });
+    });
+    // todo: get this working with login_status/etc.
+    $('a.facebook').click(function(e){
+      e.preventDefault()
+      FB.getLoginStatus(function(response) {
+        if (response.session) { // user is connected to Facebook
+          u.reload()
+        } else {
+          FB.login(function(response) {
+            if (response.session) {
+              if (response.perms) {
+                // user is logged in and granted some permissions.
+                // perms is a comma separated list of granted permissions
+                log(response.perms)
+              } else {
+                // user is logged in, but did not grant any permissions
+                log('have no perms')
+              }
+            } else {
+              // user is not logged in
+              log('could not log you in')
+            }
+          }, {perms:'email,publish_stream'});
+        }
+      })
     })
-  },
-  sign_in:function(url){
-    document.location.href = url
   }
 }
 
@@ -249,6 +276,10 @@ video.popup = {
 var u = {
   log:function(message){
     if (window.console) console.log(message)
+  },
+  load:function(path){
+    path = path || '/'
+    window.location.href = path
   },
   reload:function(){
     window.location.reload();

@@ -1,0 +1,4 @@
+#fb-root
+= javascript_include_tag("http://connect.facebook.net/en_US/all.js")
+%script{ :type => 'text/javascript', :charset => 'utf-8' }
+  = "FB.init({ appId: '#{DeviseFacebookOpenGraph::Facebook::Config.application_id}', status: true, cookie: true, xfbml: true });"

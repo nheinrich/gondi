@@ -46,9 +46,3 @@ Gondi::Application.configure do
 
 end
 
-# Facebook
-
-FB_API_KEY= '51179d87794d58514950e21d267ba0f7'
-FB_SECRET = 'a5806582a78e7b6bd93d0b0dad313e83'
-FB_APP_ID = '100351536684820'
-FB_HOST = 'http://gondi.tv/'
