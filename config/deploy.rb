@@ -49,7 +49,7 @@ namespace :deploy do
   desc "This to do once we get the code up"
   task :after_update_code, :roles => :app, :except => { :no_release => true } do
     run "cp #{shared_path}/database.yml #{release_path}/config/"
-    run "cd #{release_path} && sudo bundle install"
+    run "cd #{release_path} && bundle install"
     run "cd #{release_path} && RAILS_ENV=#{stage} ./script/rails runner Sass::Plugin.update_stylesheets"
     run "cd #{release_path} && RAILS_ENV=#{stage} rake db:migrate"
     # update_crontab
