@@ -1,172 +1,169 @@
 // cufon  -------------------------------------------------------------------
 
-= cufon
-  :visibility hidden
+=cufon
+  visibility: hidden
 
 // layout  -------------------------------------------------------------------
 
-= centered
-  :margin 0 auto
+=centered
+  margin: 0 auto
 
 // elements  -----------------------------------------------------------------
 
-= image_text
-  :display block
-  :overflow hidden
-  :text-indent 9999px
-
+=image_text
+  display: block
+  overflow: hidden
+  text-indent: 9999px
 
 // styles  -------------------------------------------------------------------
 
-= shadowed(!color = #555)
-  :text-shadow 1px 1px !color
+=shadowed($color: #555555)
+  text-shadow: 1px 1px $color
 
+=rounded($radius: 4px)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
 
-= rounded(!radius = 4px)
-  :-moz-border-radius !radius
-  :-webkit-border-radius !radius
+=rounded_right($radius: 4px)
+  -moz-border-radius-topright: $radius
+  -moz-border-radius-bottomright: $radius
+  -webkit-border-top-right-radius: $radius
+  -webkit-border-bottom-right-radius: $radius
 
-= rounded_right(!radius = 4px)
-  :-moz-border-radius-topright !radius
-  :-moz-border-radius-bottomright !radius
-  :-webkit-border-top-right-radius !radius
-  :-webkit-border-bottom-right-radius !radius
+=rounded_left($radius: 4px)
+  -moz-border-radius-topleft: $radius
+  -moz-border-radius-bottomleft: $radius
+  -webkit-border-top-left-radius: $radius
+  -webkit-border-bottom-left-radius-: $radius
 
-= rounded_left(!radius = 4px)
-  :-moz-border-radius-topleft !radius
-  :-moz-border-radius-bottomleft !radius
-  :-webkit-border-top-left-radius !radius
-  :-webkit-border-bottom-left-radius- !radius
+=rounded_top($radius: 4px)
+  -moz-border-radius-topleft: $radius
+  -moz-border-radius-topright: $radius
+  -webkit-border-top-left-radius: $radius
+  -webkit-border-top-right-radius: $radius
 
-= rounded_top(!radius = 4px)
-  :-moz-border-radius-topleft !radius
-  :-moz-border-radius-topright !radius
-  :-webkit-border-top-left-radius !radius
-  :-webkit-border-top-right-radius !radius
+=rounded_bottom($radius: 4px)
+  -moz-border-radius-bottomleft: $radius
+  -moz-border-radius-bottomright: $radius
+  -webkit-border-bottom-left-radius: $radius
+  -webkit-border-bottom-right-radius: $radius
 
-= rounded_bottom(!radius = 4px)
-  :-moz-border-radius-bottomleft !radius
-  :-moz-border-radius-bottomright !radius
-  :-webkit-border-bottom-left-radius !radius
-  :-webkit-border-bottom-right-radius !radius
-
-= box_shadow(!size = 30px, !color = #101010)
-  :-moz-box-shadow 0px 0px !size !color
-  :box-shadow 0px 0px !size !color
+=box_shadow($size: 30px, $color: #101010)
+  -moz-box-shadow: 0px 0px $size $color
+  box-shadow: 0px 0px $size $color
 
 // hacks  --------------------------------------------------------------------
 
-= has_layout
+=has_layout
   // This makes ie6 get layout
-  :display inline-block
+  display: inline-block
   // and this puts it back to block
   &
-    :display block
+    display: block
 
-= clearfix
+=clearfix
   &:after
-    :content " "
-    :display block
-    :height 0
-    :clear both
-    :overflow hidden
-    :visibility hidden
+    content: " "
+    display: block
+    height: 0
+    clear: both
+    overflow: hidden
+    visibility: hidden
   +has_layout
 
 // shortcuts -----------------------------------------------------------------
 
-= block
-  :display block
+=block
+  display: block
 
-= inline
-  :display inline
+=inline
+  display: inline
 
-= inline-block
-  :display inline-block
+=inline-block
+  display: inline-block
 
 .clear
   +block
-  :clear both
+  clear: both
 
-= clear
+=clear
   +block
-  :clear both
+  clear: both
 
-= cleft
+=cleft
   +block
-  :clear left
+  clear: left
 
-= cright
+=cright
   +block
-  :clear right
+  clear: right
 
 .left
-  :float left
+  float: left
 
-= left
-  :float left
+=left
+  float: left
 
 .right
-  :float right
+  float: right
 
-= right
-  :float right
+=right
+  float: right
 
-= tleft
-  :text-align left
+=tleft
+  text-align: left
 
-= tright
-  :text-align right
+=tright
+  text-align: right
 
-= absolute
-  :position absolute
+=absolute
+  position: absolute
 
-= relative
-  :position relative
+=relative
+  position: relative
 
 // visibility  ---------------------------------------------------------------
 
-= hide
-  :display none
+=hide
+  display: none
 
 .hide
   +hide
 
-= visible
-  :visibility visible
+=visible
+  visibility: visible
 
-= invisible
-  :visibility hidden
+=invisible
+  visibility: hidden
 
-= transparent
-  :background transparent
+=transparent
+  background: transparent
 
-= no_overflow
-  :overflow hidden
+=no_overflow
+  overflow: hidden
 
 // lists
 
-= horizontal
+=horizontal
   li
     +block
     +left
 
 // forms
 
-= see_through
-  :border 0
-  :background transparent
+=see_through
+  border: 0
+  background: transparent
 
 // utility
 
-= ub
-  :background pink
+=ub
+  background: pink
 
-= ubb
-  :border 5px solid red
+=ubb
+  border: 5px solid red
 
 br.clear
   +block
   +clear
-  :height 0
-
+  height: 0

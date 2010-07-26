@@ -1,59 +1,50 @@
-
-/* popup ------------------------------------------------------------------ */
+/* popup ------------------------------------------------------------------
 
 #popup
   +hide
-  :position fixed
-  :width 100%
-  :height 100%
-  :padding-top 40px
-  :z-index 100
-  :background url(/images/translucent_80p.png)
-
+  position: fixed
+  width: 100%
+  height: 100%
+  padding-top: 40px
+  z-index: 100
+  background: url(/images/translucent_80p.png)
   .window
     +relative
-    :margin 0 auto
-    :padding 20px
-    :background #000
+    margin: 0 auto
+    padding: 20px
+    background: black
     +box_shadow
 
-/* watch ------------------------------------------------------------------ */
+/* watch ------------------------------------------------------------------
 
 #popup div.watch
-  :padding 0 0 35px
+  padding: 0 0 35px
   +rounded_bottom(6px)
   .player
-    :margin-bottom 20px
+    margin-bottom: 20px
   .panel
     +absolute
-    :right 6px
-    :bottom 2px
-    :left 6px
-    :height 25px
-    :overflow hidden
-    :border-top 1px solid #010101
+    right: 6px
+    bottom: 2px
+    left: 6px
+    height: 25px
+    overflow: hidden
+    border-top: 1px solid #010101
     h2
       +left
-      :width 87%
-      :font-size 16px
-      :color #222
+      width: 87%
+      font-size: 16px
+      color: #222222
     a.save_video
       +block
       +right
-      :padding 5px 6px 3px
-      :font-size 11px
-      :font-weight normal
-      +shadowed(#111)
-      :text-transform uppercase
-      :color #ddd
-      :background #9a9a9a
+      padding: 5px 6px 3px
+      font-size: 11px
+      font-weight: normal
+      +shadowed(#111111)
+      text-transform: uppercase
+      color: #dddddd
+      background: #9a9a9a
       +rounded
       &.saved, &:hover
-        :background= !green
-
-
-
-
-
-
-
+        background: $green

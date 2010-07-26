@@ -5,146 +5,142 @@
 span.hr
   +block
   +clear
-  :margin-bottom 10px
-  :border-top= 1px solid !border_top
-  :border-bottom= 1px solid !border_bot
+  margin-bottom: 10px
+  border-top: 1px solid $border_top
+  border-bottom: 1px solid $border_bot
 
 // lifted box ----------------------------------------------------------------
 
 div.lifted_box
   +relative
-  :left -25px
-  :width 750px
-  :margin-bottom 10px
+  left: -25px
+  width: 750px
+  margin-bottom: 10px
   .top, .bot
-    :height 10px
-    :padding 0 25px 0
-    :background-position no-repeat
+    height: 10px
+    padding: 0 25px 0
+    background-position: no-repeat
   .top
-    :background url(/images/lifted_box.top.png)
+    background: url(/images/lifted_box.top.png)
   .mid
-    :padding 5px 25px 10px
-    :background url(/images/lifted_box.mid.png) repeat-y
+    padding: 5px 25px 10px
+    background: url(/images/lifted_box.mid.png) repeat-y
     span.hr
-      :border-top 1px solid #bfbfbf
-      :border-bottom 1px solid #fbfbfb
+      border-top: 1px solid #bfbfbf
+      border-bottom: 1px solid #fbfbfb
   .bot
-    :background url(/images/lifted_box.bot.png)
+    background: url(/images/lifted_box.bot.png)
 
 // video ---------------------------------------------------------------------
 
 li.video
   +block
   +relative
-  :width 100%
-  :height 109px
-  :padding 1px
-  :margin-bottom 15px
-  :background= !bg_gray_dark
-  +box_shadow(2px, #888)
+  width: 100%
+  height: 109px
+  padding: 1px
+  margin-bottom: 15px
+  background: $bg_gray_dark
+  +box_shadow(2px, #888888)
   &:hover
     img
-      :opacity 1
+      opacity: 1
   img
     +block
     +left
-    :width 144px
-    :height 109px
-    :background= !bg_gray_dark
-    :opacity .9
+    width: 144px
+    height: 109px
+    background: $bg_gray_dark
+    opacity: 0.9
   span.duration
     +absolute
-    :top 4px
-    :left 1px
-    :height 14px
-    :padding 0 4px 0 3px
+    top: 4px
+    left: 1px
+    height: 14px
+    padding: 0 4px 0 3px
     +rounded_right
     +gondvetica
-    :font-size 11px
-    :line-height 14px
-    :color= !white
-    :background #000
-    :opacity .8
+    font-size: 11px
+    line-height: 14px
+    color: $white
+    background: black
+    opacity: 0.8
   .info
     +relative
     +left
-    :width 389px
-    :height 100%
-    :margin 0
-    :padding 0 6px
-    :border-left 1px solid #888
+    width: 389px
+    height: 100%
+    margin: 0
+    padding: 0 6px
+    border-left: 1px solid #888888
     h3
-      :height 25px
-      :overflow hidden
-      :margin-bottom 0
+      height: 25px
+      overflow: hidden
+      margin-bottom: 0
       a
-        :color= !white
+        color: $white
     .athletes
-      :overflow hidden
-      :height 63px
-      :margin-left 3px
+      overflow: hidden
+      height: 63px
+      margin-left: 3px
       ul
         +left
         +horizontal
         li
           +block
-          :padding-right 3px
+          padding-right: 3px
           a
             +block
             +cufon
             +gondvetica
-            :font-size 12px
-            :font-style italic
-            :color= !txt_gray_on_dark
+            font-size: 12px
+            font-style: italic
+            color: $txt_gray_on_dark
             &:hover
-              :color #fff
+              color: white
     ul.meta
       +absolute
-      :left 6px
-      :bottom 4px
+      left: 6px
+      bottom: 4px
       +horizontal
       +cleft
       li
-        :margin-right 8px
-        :font-size 10px
-        :color= !txt_gray_dark
+        margin-right: 8px
+        font-size: 10px
+        color: $txt_gray_dark
         a
-          :text-decoration underline
+          text-decoration: underline
         span, a
-          :padding-right 5px
-          :color= !txt_gray_darkest
+          padding-right: 5px
+          color: $txt_gray_darkest
           &.total_views
-            :padding-right 0
+            padding-right: 0
   ul.options
     +right
-    :width 144px
-    :height 100%
-    :border-left 1px solid #6c6c6c
+    width: 144px
+    height: 100%
+    border-left: 1px solid #6c6c6c
     li
       +block
-      :height 54px
+      height: 54px
       a
         +block
-        :height 38px
-        :padding-top 16px
-        :visibility hidden
+        height: 38px
+        padding-top: 16px
+        visibility: hidden
         +gondvetica
-        :font-size 21px
-        :text-transform uppercase
-        :text-align center
-        :color= !white
-        :background #9a9a9a
-
+        font-size: 21px
+        text-transform: uppercase
+        text-align: center
+        color: $white
+        background: #9a9a9a
     li.watch, li.edit
-      :margin-bottom 1px
+      margin-bottom: 1px
       a.new
-        :background= !yellow
+        background: $yellow
     li.save
       a.saved
-        :background= !green
-
-
-
+        background: $green
 
 // tags ----------------------------------------------------------------------
 
@@ -154,85 +150,63 @@ ul.tag_list
 a.tag
   +block
   +left
-  :height 22px
-  :margin 0 13px 3px 0
-  :cursor pointer
-  :color= !white
+  height: 22px
+  margin: 0 13px 3px 0
+  cursor: pointer
+  color: $white
   span.text
     +block
     +left
-    :height 18px
-    :margin-right -10px
-    :padding 4px 0 0 10px
-    :font normal 12px Arial
-    :letter-spacing .2px
+    height: 18px
+    margin-right: -10px
+    padding: 4px 0 0 10px
+    font: normal 12px Arial
+    letter-spacing: 0.2px
     +shadowed
-    :background url(/images/tags.png) left top no-repeat
+    background: url(/images/tags.png) left top no-repeat
   span.option
     +inline-block
     +relative
-    :right -10px
-    :height 22px
-    :width 10px
-    :background url(/images/tags.png) right top no-repeat
+    right: -10px
+    height: 22px
+    width: 10px
+    background: url(/images/tags.png) right top no-repeat
   &.icon
     span.option
-      :padding-right 18px
-      :background-position right -44px
+      padding-right: 18px
+      background-position: right -44px
   &:hover
     span.text
-      :background-position left -22px
+      background-position: left -22px
     &.icon
       span.option
-        :background-position right -66px
+        background-position: right -66px
 
 // autocomplete --------------------------------------------------------------
 
 .acResults
-  :margin-top 5px
-  :margin-left -3px
-  :overflow hidden
-  background= !white
+  margin-top: 5px
+  margin-left: -3px
+  overflow: hidden
+  background: $white
   +rounded_bottom(4px)
-  :-moz-box-shadow 0px 2px 4px #111111
-  :box-shadow 0px 2px 4px #111111
+  -moz-box-shadow: 0px 2px 4px #111111
+  box-shadow: 0px 2px 4px #111111
   ul
-    :width 100%
+    width: 100%
     margin-left -4px
     li
       +block
-      :padding 5px 5px 3px
-      :font-size 12px
-      :color= !txt_gray_medium
-      :cursor pointer
-      :overflow hidden
+      padding: 5px 5px 3px
+      font-size: 12px
+      color: $txt_gray_medium
+      cursor: pointer
+      overflow: hidden
       &.acSelect
-        :color= !white
-        :background= !green
+        color: $white
+        background: $green
       &:last-child.acSelect
         +rounded_bottom(4px)
+
 .acLoading
-  :background url(/images/indicator.gif) right center no-repeat
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  background: url(/images/indicator.gif) right center no-repeat

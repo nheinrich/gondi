@@ -1,15 +1,15 @@
 // options -------------------------------------------------------------------
 
-= default
-  :font-family "Helvetica", "Arial"
+=default
+  font-family: "Helvetica", "Arial"
 
-= georgia
-  :font-size 16px
-  :font-family "Georgia"
-  :font-style italic
+=georgia
+  font-size: 16px
+  font-family: "Georgia"
+  font-style: italic
 
-= gondvetica
-  :font-family "Gondvetica", "Helvetica Neue", "Arial"
+=gondvetica
+  font-family: "Gondvetica", "Helvetica Neue", "Arial"
 
 // defaults ------------------------------------------------------------------
 
@@ -17,35 +17,33 @@ body
   +default
 
 h1
-
   +gondvetica
-  :font-size 48px
-  :font-weight bold
-  :text-transform uppercase
+  font-size: 48px
+  font-weight: bold
+  text-transform: uppercase
   a
     +cufon
     +block
     +left
-    :color= !white
-
+    color: $white
 
 h2
   +cufon
   +gondvetica
-  :font-size 30px
-  :font-weight bold
-  :text-transform uppercase
-  :color= !bg_gray_dark
+  font-size: 30px
+  font-weight: bold
+  text-transform: uppercase
+  color: $bg_gray_dark
 
 h3
   +cufon
   +gondvetica
-  :margin-bottom 2px
-  :font-size 20px
-  :font-weight bold
-  :text-transform uppercase
-  :color= !white
+  margin-bottom: 2px
+  font-size: 20px
+  font-weight: bold
+  text-transform: uppercase
+  color: $white
 
 h4
   +cufon
-  :font-weight bold
+  font-weight: bold

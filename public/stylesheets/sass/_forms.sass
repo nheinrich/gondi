@@ -4,46 +4,45 @@
 
 div.fancy_input
   +relative
-  :height 31px
+  height: 31px
   span.input
     +block
     +left
-    :height 31px
-    :margin-right -10px
-    :padding-left 6px
-    :background url(/images/fancy_input.default.png) no-repeat
+    height: 31px
+    margin-right: -10px
+    padding-left: 6px
+    background: url(/images/fancy_input.default.png) no-repeat
     input
       +left
       +see_through
-      :margin-top 5px
-      :padding-top 6px
-      :font-size 14px
-      :color= !txt_gray_medium
+      margin-top: 5px
+      padding-top: 6px
+      font-size: 14px
+      color: $txt_gray_medium
       &.blur
-        :color= !txt_gray_light
+        color: $txt_gray_light
   span.tail
-    :display inline-block
+    display: inline-block
     +relative
-    :right -9px
-    :height 31px
-    :width 10px
-    :background url(/images/fancy_input.default.png) top right no-repeat
+    right: -9px
+    height: 31px
+    width: 10px
+    background: url(/images/fancy_input.default.png) top right no-repeat
   &.round
     span.input
-      :background url(/images/fancy_input.round.png) no-repeat
+      background: url(/images/fancy_input.round.png) no-repeat
     span.tail
-      :background url(/images/fancy_input.round.png) top right no-repeat
+      background: url(/images/fancy_input.round.png) top right no-repeat
   &.icon
     span.input
-      :padding-left 23px
-      :background url(/images/fancy_input.round.with_icon.png) no-repeat
-
+      padding-left: 23px
+      background: url(/images/fancy_input.round.with_icon.png) no-repeat
 
 div.buttons
-  :height 31px
+  height: 31px
   a.bevel_button
     +left
-    :margin-right 15px
+    margin-right: 15px
 
 // actual forms --------------------------------------------------------------
 
@@ -51,29 +50,28 @@ div.buttons
 
 div.video_form
   div.head
-    :height 40px
-    :padding-top 4px
+    height: 40px
+    padding-top: 4px
     h2
       +left
       +inline-block
-      :width 100px
+      width: 100px
     div.published_on
       +right
-      :width 431px
-      :margin-right -8px
+      width: 431px
+      margin-right: -8px
       select
-        :height 34px
-        :padding 8px 8px 0 0
-        :font-size 14px
-        :opacity .5
+        height: 34px
+        padding: 8px 8px 0 0
+        font-size: 14px
+        opacity: 0.5
     a.bevel_button.status
       +right
       +relative
-      :left -5px
+      left: -5px
       span.text
-        :width 51px
-        :padding-left 24px
-
+        width: 51px
+        padding-left: 24px
     .status
       +right
       a
@@ -81,107 +79,104 @@ div.video_form
         &.selected
           +block
   div.video
-    :height 80px
-    :margin-bottom 3px
+    height: 80px
+    margin-bottom: 3px
     .fancy_input
       +left
-      :margin 0 20px 10px 0
+      margin: 0 20px 10px 0
     .title input
-      :width 382px
+      width: 382px
     .width input,
     .height input,
     .duration input
-      :width 75px
+      width: 75px
     .duration
-      :margin-right 0
+      margin-right: 0
     .data
       +left
       +cleft
-      :width 408px
-      :height 32px
+      width: 408px
+      height: 32px
       a.embed
         +left
-        :padding-right 10px
-        :margin-right 7px
+        padding-right: 10px
+        margin-right: 7px
         span.text
-          :width 43px
-          :padding-left 12px
+          width: 43px
+          padding-left: 12px
         &.active
           +relative
-          :top -5px
-          :left -5px
+          top: -5px
+          left: -5px
           &:hover
-            :z-index 20
+            z-index: 20
       .embed
         input
-          :width 300px
+          width: 300px
       .provider input
-        :width 96px
+        width: 96px
       .provider_id input
-        :width 177px
+        width: 177px
     .source input
-      :width 176px
+      width: 176px
     a.image
       +left
       span.text
-        :width 49px
-        :padding-left 24px
+        width: 49px
+        padding-left: 24px
     .snapshot
       +absolute
-      :top 109px
-      :right 26px
-      :width 89px
-      :height 31px
-      :overflow hidden
-      :cursor pointer
+      top: 109px
+      right: 26px
+      width: 89px
+      height: 31px
+      overflow: hidden
+      cursor: pointer
       input
         +relative
-        :left -228px // tested in mozilla
-        :top 5px
-        :opacity 0
-        :cursor pointer
-
+        left: -228px
+        top: 5px
+        opacity: 0
+        cursor: pointer
   div.athletes
     h2
       +left
-      :width 140px
-      :margin-bottom 10px
+      width: 140px
+      margin-bottom: 10px
     div.search_or_add
       +left
-      :margin-top 3px
+      margin-top: 3px
     ul
       +cleft
-      :margin-bottom 8px
+      margin-bottom: 8px
 
 // hack to properly position image upload button in safari
 @media screen and (-webkit-min-device-pixel-ratio:0)
   div.video_form div.video .snapshot input
-    :left 0
-    :margin-top 3px
+    left: 0
+    margin-top: 3px
+
 
 // session (new) -------------------------------------------------------------
 
 div.session_form
   .fancy_input
-    :margin-bottom 10px
+    margin-bottom: 10px
     input[type='text'],
     input[type='password']
-      :width 200px
+      width: 200px
   .rememberable
     +cleft
-    :height 20px
-    :margin 5px 0 10px
-    :font-size 12px
+    height: 20px
+    margin: 5px 0 10px
+    font-size: 12px
   .session_links
-    :margin-top 40px
+    margin-top: 40px
     a
       +left
-      :margin-right 10px
-      :font-size 12px
-      :text-decoration underline
-      :color= !txt_gray_dark
+      margin-right: 10px
+      font-size: 12px
+      text-decoration: underline
+      color: $txt_gray_dark
     br
-      +hide // hide devises brs
-
-
-
+      +hide

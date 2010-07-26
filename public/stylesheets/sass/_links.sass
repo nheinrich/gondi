@@ -3,50 +3,50 @@
 // bevel_button --------------------------------------------------------------
 
 a.bevel_button
-  :height 32px
-  :cursor pointer
+  height: 32px
+  cursor: pointer
   span.text
     +block
     +left
-    :height 26px
-    :margin-right -10px
-    :padding 6px 10px 0 15px
+    height: 26px
+    margin-right: -10px
+    padding: 6px 10px 0 15px
     +georgia
     +shadowed
-    :color= !white
-    :background url(/images/buttons.png)
+    color: $white
+    background: url(/images/buttons.png)
   span.tail
-    :display inline-block
+    display: inline-block
     +relative
-    :right -9px
-    :height 32px
-    :width 10px
-    :background url(/images/buttons.png) top right
+    right: -9px
+    height: 32px
+    width: 10px
+    background: url(/images/buttons.png) top right
   &.green
     span.text
-      :background-position left top
+      background-position: left top
     span.tail
-      :background-position right top
+      background-position: right top
   &.red
     span.text
-      :background-position left -32px
+      background-position: left -32px
     span.tail
-      :background-position right -32px
+      background-position: right -32px
   &.gray
     span.text
-      :background-position left -64px
+      background-position: left -64px
     span.tail
-      :background-position right -64px
+      background-position: right -64px
     &:hover
       span.text
-        :background-position left -96px
+        background-position: left -96px
       span.tail
-        :background-position right -96px
+        background-position: right -96px
 
 // facebook ------------------------------------------------------------------
 
 a.facebook
   +image_text
-  :width 58px
-  :height 18px
-  :background url(/images/a.facebook.png)
+  width: 58px
+  height: 18px
+  background: url(/images/a.facebook.png)
