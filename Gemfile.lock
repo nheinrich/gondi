@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 4ac3ae0
+  revision: b6f9932
   specs:
     actionmailer (3.0.0.rc)
       actionpack (= 3.0.0.rc)
@@ -40,7 +40,7 @@ GIT
       activerecord (= 3.0.0.rc)
       activeresource (= 3.0.0.rc)
       activesupport (= 3.0.0.rc)
-      bundler (>= 1.0.0.beta.10)
+      bundler (>= 1.0.0.rc.1)
       railties (= 3.0.0.rc)
     railties (3.0.0.rc)
       actionpack (= 3.0.0.rc)
@@ -107,7 +107,7 @@ GEM
       activesupport (>= 2.2)
     gherkin (2.1.5)
       trollop (~> 1.16.2)
-    haml (3.0.13)
+    haml (3.0.14)
     highline (1.6.1)
     hirb (0.3.2)
     i18n (0.4.1)
