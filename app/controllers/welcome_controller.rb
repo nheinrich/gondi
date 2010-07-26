@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @title = 'Videos'
+    @title = 'gondi.tv'
     @videos = current_admin ? Video.all : Video.active
 
     render :template => 'videos/list'

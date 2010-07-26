@@ -1,25 +1,26 @@
 .header
+  .nav
+    %ul
+      - if current_admin
+        %li
+          = link_to 'new video', new_video_path, :remote => true, :class => 'new_video'
+        %li= link_to 'sign out', destroy_admin_session_path, :title => current_admin.email
+      - elsif current_user
+        %li
+          = link_to 'my saves', favorites_path, :class => 'my_saves'
+        %li= link_to 'sign out', destroy_user_session_path, :title => current_user.email, :class => 'sign_out'
+      - else
+        %li
+          = link_to 'sign in', new_user_session_path, :class => 'sign_in'
+        %li= link_to 'Connect with Facebook', '#', :class => 'facebook'
+        
+    
+
   %h1
     = link_to @title, '/'
 
   // %span= videos_total(134)
 
-  %ul.nav
-    - if current_admin
-      %li
-        = link_to 'new video', new_video_path, :remote => true, :class => 'new_video'
-        = " / "
-      %li= link_to 'sign out', destroy_admin_session_path, :title => current_admin.email
-    - elsif current_user
-      %li
-        = link_to 'my saves', favorites_path, :class => 'my_saves'
-        = " / "
-      %li= link_to 'sign out', destroy_user_session_path, :title => current_user.email, :class => 'sign_out'
-    - else
-      %li
-        = link_to 'sign in', new_user_session_path
-        &nbsp;/
-      %li= link_to 'Connect with Facebook', '#', :class => 'facebook'
 
   .search
     = fancy_input 'Search', 'round icon'

@@ -1,77 +1,93 @@
 body
-  :color= #616161
-  :background= !bg_gray_medium
+  color: #616161
+  background: $bg_gray_medium
 
 .container
-  :width 700px
-  :margin-left 100px
-  :padding 0 10px
+  width: 700px
+  margin-left: 100px
+  padding: 0 10px
 
 .header
   +relative
-  :height 100px
-  :border-top= 5px solid !peach
+  height: 97px
+  .nav
+    height: 24px
+    margin 0 -10px
+    background: #a5a5a5
+    +rounded_bottom(4px)
+    ul
+      +right
+      padding: 0px 3px 0 8px
+      font-size: 11px
+      li
+        +block
+        +left
+        height: 24px
+        margin-right: 8px
+        &:after
+          content: " / "
+        &:last-child
+          margin-right: 0
+        &:last-child:after
+          content: ""
+      a
+        +inline_block
+        padding: 7px 4px 0 0
+        color: $txt_gray_dark
+        font-style: italic
+        &:hover
+          text-decoration: underline
+        &.facebook
+          margin-top: 3px
+          padding: 0
+        &.my_saves, &.new_video, &.sign_out
+          padding-right: 4px
 
   h1
-    :margin-top 25px
+    margin-top: 8px
     span.total
-      :margin 21px 0 0 8px
+      margin: 21px 0 0 8px
     span
-      :margin-top -2px
-      :font-size 27px
-      :color #7b7b7b
+      margin-top: -2px
+      font-size: 27px
+      color: #7b7b7b
       &.number
-        :margin 0 1px
-
-  ul.nav
-    +absolute
-    +horizontal
-    :top 16px
-    :right 0
-    :font-size 11px
-    li
-      :padding-left 6px
-    a
-      :color= !txt_gray_dark
-      &:hover
-        :text-decoration underline
-      &.facebook
-        :margin-top -4px
-      &.my_saves, &.new_video
-        :padding-right 4px
+        margin: 0 1px
   .search
     +absolute
-    :top 30px
-    :right 0
-    :padding 10px 0 10px 135px
-    :background url(/images/search_bg.png) top left repeat-y
-    :z-index 5
+    top: 45px
+    right: 0
+    padding: 2px 0 10px 135px
+    background: url(/images/search_bg.png) top left repeat-y
+    z-index: 5
     div.fancy_input
-      :left -10px
+      left: -10px
       input
-        :width 200px
+        width: 200px
 
 .flash
   +clear
 
 .content
-  :min-height 200px
-  :padding 10px 0
-  :margin-bottom 10px
+  min-height: 200px
+  padding: 10px 0
+  margin-bottom: 10px
 
 .footer
-  :margin-bottom 60px
+  margin-bottom: 60px
   a
     +gondvetica
     +cufon
-    :font-size 16px
-    :font-weight bold
-    :text-transform uppercase
-    :color #eaeaea
+    font-size: 16px
+    font-weight: bold
+    text-transform: uppercase
+    color: #eaeaea
     &.copyright
-      :color #fff
+      color: white
+    &:hover
+      color: white
   ul
     +right
     +horizontal
     li
-      :margin-left 20px
+      margin-left: 20px

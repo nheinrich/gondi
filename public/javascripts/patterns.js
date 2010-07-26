@@ -127,7 +127,8 @@ var hoverable = {
 
 var typography = {
   init:function(){
-    this.shadow(['h1 a','.footer a'])
+    this.shadow(['h1 a'])
+    this.hoverable_with_shadow(['.footer a'])
   },
   replace:function(elements){
     Cufon.replace(elements)
