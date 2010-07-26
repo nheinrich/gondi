@@ -21,7 +21,7 @@ module ApplicationHelper
 
       haml_tag :div, {:class => 'fancy_input ' + style} do
         haml_tag :span, {:class  => 'input'} do
-          haml_tag :input, {:type => type, :name => name, :title => title, :value => value}
+          haml_tag :input, {:type => type, :name => name, :title => title, :value => value, :autocomplete => 'off'}
         end
         haml_tag :span, {:class => 'tail'}
       end
