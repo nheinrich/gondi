@@ -22,6 +22,10 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
+  def submit_link
+    @video = Video.new
+  end
+
   def edit
     @video = Video.find params[:id]
     @selector = '.video_'+@video.id.to_s

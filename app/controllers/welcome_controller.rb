@@ -7,4 +7,8 @@ class WelcomeController < ApplicationController
     render :template => 'videos/list'
   end
 
+  def info
+
+  end
+
 end

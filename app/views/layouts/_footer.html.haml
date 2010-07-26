@@ -1,5 +1,6 @@
 .footer
   =link_to '© 2010 GONDI.TV', root_path, :class => 'copyright'
   %ul
-    %li= link_to 'Submit a Link', 'submit_a_link'
-    %li= link_to 'Contact', 'contact_path'
+    %li= link_to 'Info', info_path
+    %li= link_to 'Submit Link', submit_link_path, :remote => true
+    %li= mail_to 'neil@pixels-and-bits.com', 'Contact', :subject => 'gondi.tv'

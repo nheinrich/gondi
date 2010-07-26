@@ -2,21 +2,25 @@
   = form_for video, :html => {:multipart => true} do |f|
     .head
       %h2 Video
-      .status
-        // todo: move to helper
-        - status = determine_video_status(video)
-        - VIDEO_STATES.each do |state|
-          - selected = (status == state) ? 'selected' : ''
-          - styles = 'status gray '+ state + ' ' + selected
-          = bevel_button state, styles
-        = hidden_field_tag 'video[status]', status
-      .published_on
-        =f.datetime_select 'published_at', :order => [:month, :day, :year]
+      - if current_admin
+        .status
+          // todo: move to helper
+          - status = determine_video_status(video)
+          - VIDEO_STATES.each do |state|
+            - selected = (status == state) ? 'selected' : ''
+            - styles = 'status gray '+ state + ' ' + selected
+            = bevel_button state, styles
+          = hidden_field_tag 'video[status]', status
+        .published_on
+          =f.datetime_select 'published_at', :order => [:month, :day, :year]
+      - else
+        = hidden_field_tag 'video[status]', 'review'
+
     %span.hr
     .video
       = fancy_input 'video[title]', 'title', 'Title', video.title
-      = fancy_input 'video[width]', 'width', '720px', video.width
-      = fancy_input 'video[height]', 'height', '480px', video.height
+      = fancy_input 'video[width]', 'width', '720', video.width
+      = fancy_input 'video[height]', 'height', '480', video.height
       = fancy_input 'video[duration]', 'duration', 'Duration', video.duration
       .data
         = bevel_button 'embed', 'embed gray'

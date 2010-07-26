@@ -20,11 +20,13 @@ Gondi::Application.routes.draw do |map|
   # videos
   match 'watch/:id' => 'videos#show', :as => 'watch_video'
   match 'videos/add_athlete' => 'videos#add_athlete'
+  match 'submit_link' => 'videos#submit_link', :as => 'submit_link'
   resources :videos
 
-  # welcome
+  # static
   root :to => 'welcome#index'
   match '/', :to => 'welcome#index', :as => 'admin_root'
+  match 'info' => 'welcome#info', :as => 'info'
 
   # documentation
 
