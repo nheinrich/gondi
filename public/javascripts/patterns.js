@@ -173,7 +173,7 @@ video.form = {
   },
   hide:function(){
     var form = $("div.video_form")
-    form.siblings('span.hr:first').remove()
+    form.siblings('span.hr.with_video_form').remove()
     form.slideToggle().remove()
   },
   init:function(){
