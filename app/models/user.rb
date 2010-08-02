@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :facebook_open_graph_authenticatable,
     :registerable, :recoverable, :rememberable, :trackable
 
+  before_create_by_facebook :extract_user_data_from_facebook_session
+
   has_many :favorites, :dependent => :destroy
   has_many :videos_favorited, :through => :favorites, :source => :video
 
@@ -26,8 +28,9 @@ class User < ActiveRecord::Base
     view.update_attribute('total', view.total ? view.total += 1 : 1)
   end
 
-  # not currently in use, included for example purposes
   def extract_user_data_from_facebook_session
-    user = facebook_session.graph.get_object(:me)
+    user_data_from_facebook = facebook_session.graph.get_object(:me)
+    self.email = user_data_from_facebook['email'] || ''
   end
+
 end
