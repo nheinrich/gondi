@@ -1,3 +1,1 @@
-if RAILS_ENV == "production"
-  Paperclip.options[:command_path] = "/usr/local/bin"
-end
+Paperclip.options[:command_path] = "/usr/local/bin" if Rails.env.production?
