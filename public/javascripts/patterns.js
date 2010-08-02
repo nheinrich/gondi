@@ -255,7 +255,9 @@ video.list = {
   hovers:function(){
     fader.init('ul.options li.edit a', '#fff600')
     fader.init('ul.options li.delete a', '#ff0000')
-    fader.init('ul.options li.watch a', '#4c4c4c')
+    fader.init('ul.options li.watch a', '#00ff66', (function(){
+      return $(this).hasClass('watched') ? '#9a9a9a' : '#00ff66'
+    }))
     fader.init('ul.options li.save a', '#00ff66', (function(){
       return $(this).hasClass('saved') ? '#00ff66' : '#9a9a9a'
     }))

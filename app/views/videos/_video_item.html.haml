@@ -35,7 +35,7 @@
   %ul.options
     - unless current_admin
       // todo: if you haven't watched the video, mark it new
-      %li.watch= link_to 'Watch', watch_video_path(video), :remote => true
+      %li.watch= watch_button(video)
       %li.save= save_button(video)
     - else
       %li.edit= link_to 'Edit', edit_video_path(video), :class => 'edit', :remote => true

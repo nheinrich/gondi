@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     favorites.map(&:video_id).include? video.id
   end
 
+  def has_viewed(video)
+    views.map(&:video_id).include? video.id
+  end
+
   def track_view(video)
     view = views.find_or_create_by_video_id(video.id)
     view.update_attribute('total', view.total ? view.total += 1 : 1)

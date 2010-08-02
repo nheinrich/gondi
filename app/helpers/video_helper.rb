@@ -27,4 +27,11 @@ module VideoHelper
     end
   end
 
+  def watch_button(video)
+    style = current_user ? ('watched' if current_user.has_viewed(video)) : ''
+    capture_haml do
+      haml_tag :a, 'Watch', {:href => watch_video_path(video), :class => style, "data-remote" => "true" }
+    end
+  end
+
 end
