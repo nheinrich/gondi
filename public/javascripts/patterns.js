@@ -4,7 +4,7 @@
 
 var endless_page = {
   current_page: 1,
-  load:function(){
+  init:function(){
     this.check_scroll();
   },
   check_scroll:function(){
@@ -12,11 +12,11 @@ var endless_page = {
       this.current_page++
       $.get(window.location, { page: this.current_page }, null, 'script')
     } else {
-      setTimeout("this.check_scroll()", 250)
+      setTimeout("endless_page.check_scroll()", 250)
     }
   },
   near_bottom:function(){
-    return this.distance_from_bottom() - 50
+    return this.distance_from_bottom() < 125
   },
   distance_from_bottom:function(){
     return this.page_height() - (window.pageYOffset + self.innerHeight)
