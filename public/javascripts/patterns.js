@@ -1,5 +1,31 @@
 // patterns ------------------------------------------------------------------
 
+// endless page --------------------------------------------------------------
+
+var endless_page = {
+  current_page: 1,
+  load:function(){
+    this.check_scroll();
+  },
+  check_scroll:function(){
+    if (this.near_bottom()) {
+      this.current_page++
+      $.get(window.location, { page: this.current_page }, null, 'script')
+    } else {
+      setTimeout("this.check_scroll()", 250)
+    }
+  },
+  near_bottom:function(){
+    return this.distance_from_bottom() - 50
+  },
+  distance_from_bottom:function(){
+    return this.page_height() - (window.pageYOffset + self.innerHeight)
+  },
+  page_height:function(){
+    return Math.max(document.body.scrollHeight, document.body.offsetHeight)
+  }
+}
+
 // facebook ------------------------------------------------------------------
 
 var facebook = {

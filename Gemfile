@@ -13,6 +13,7 @@ gem 'devise_facebook_open_graph'
 gem 'paperclip'
 gem 'rmagick'
 gem 'friendly_id', '~> 3.0'
+gem 'will_paginate', '>= 3.0.pre2'
 
 group :test do
   gem 'capybara'

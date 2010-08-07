@@ -1,0 +1,6 @@
+$('ul.videos').append("<%= escape_javascript(render(:partial => 'videos/video', :collection => @videos)) %>")
+video.list.init()
+
+<% if @videos.total_pages > @videos.current_page %>
+  endless_page.load()
+<% end %>

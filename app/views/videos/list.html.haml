@@ -2,10 +2,9 @@
 
 - content_for :on_ready do
   video.list.init()
+  endless_page.load()  
 
 // body ----------------------------------------------------------------------
 
 %ul.videos
-  - @videos.each do |video|
-    = render 'videos/video_item', :video => video
-    
+  = render :partial =>'videos/video', :collection => @videos

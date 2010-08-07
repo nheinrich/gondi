@@ -1,6 +1,0 @@
-// this used to work but you can't send multipart data via ajax
-
-$("ul.videos").prepend("<%= escape_javascript(render 'videos/video', :video => @video) %>").fadeIn('fast')
-
-video.form.hide()
-video.list.fix_fonts("<%= escape_javascript('#video_' + @video.id.to_s) %>")

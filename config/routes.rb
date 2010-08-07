@@ -23,9 +23,11 @@ Gondi::Application.routes.draw do |map|
   match 'submit_link' => 'videos#submit_link', :as => 'submit_link'
   resources :videos
 
+  # admin
+  match 'admin', :to => 'admin#index', :as => 'admin_root'
+
   # static
   root :to => 'welcome#index'
-  match '/', :to => 'welcome#index', :as => 'admin_root'
   match 'info' => 'welcome#info', :as => 'info'
 
   # documentation
