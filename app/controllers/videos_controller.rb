@@ -34,9 +34,9 @@ class VideosController < ApplicationController
   def create
     if @video = Video.create(params[:video])
       @selector = '.video_'+@video.id.to_s
-      respond_with(@video, :location => root_url, :notice => 'Video successfully created')
+      respond_with(@video, :location => admin_root_url, :notice => 'Video successfully created')
     else
-      respond_with(@video, :location => root_url, :alert => 'Something went wrong')
+      respond_with(@video, :location => admin_root_url, :alert => 'Something went wrong')
     end
   end
 
