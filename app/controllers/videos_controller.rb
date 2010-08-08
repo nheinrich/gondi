@@ -44,9 +44,9 @@ class VideosController < ApplicationController
     @video = Video.find params[:id]
     if @video.update_attributes(params[:video])
       @selector = '.video_'+@video.id.to_s
-      respond_with(@video, :location => root_url, :notice => 'Video successfully updated')
+      respond_with(@video, :location => admin_root_url, :notice => 'Video successfully updated')
     else
-      respond_with(@video, :location => root_url)
+      respond_with(@video, :location => admin_root_url)
     end
   end
 
