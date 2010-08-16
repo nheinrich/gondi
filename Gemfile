@@ -27,4 +27,7 @@ group :test do
   gem 'pickle', :git => 'git://github.com/ianwhite/pickle.git'
   gem 'rspec-rails', '>= 2.0.0.beta.17'
   gem 'spork'
+  
+  
+  
 end
